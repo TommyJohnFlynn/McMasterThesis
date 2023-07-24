@@ -1,0 +1,200 @@
+\begin{thebibliography}{}
+
+\bibitem[Aitken(1926)]{aitken1926}
+Aitken, A. (1926).
+\newblock A series formula for the roots of algebraic and transcendental
+  equations.
+\newblock {\em Proceedings of the Royal Society of Edinburgh}, {\bf 45}(1),
+  14--22.
+
+\bibitem[Anderlucci and Viroli(2015)]{anderlucci2015}
+Anderlucci, L. and Viroli, C. (2015).
+\newblock Covariance pattern mixture models for the analysis of multivariate
+  heterogeneous longitudinal data.
+\newblock {\em The Annals of Applied Statistics}, {\bf 9}(2).
+
+\bibitem[Andrews and McNicholas(2013)]{andrews2013}
+Andrews, J.~L. and McNicholas, P.~D. (2013).
+\newblock Using evolutionary algorithms for model-based clustering.
+\newblock {\em Pattern Recognition Letters}, {\bf 34}(9), 987--992.
+
+\bibitem[Ashlock(2010)]{ashlock2010}
+Ashlock, D. (2010).
+\newblock {\em Evolutionary Computation for Modeling and Optimization}.
+\newblock Springer, New York.
+
+\bibitem[{Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah,
+  Viral B.}(2023)]{Julia}
+{Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.}
+  (2023).
+\newblock {The Julia Programming Language}.
+\newblock {Julia Computing}.
+
+\bibitem[B{\"o}hning {\em et~al.}(1994)]{bohning1994}
+B{\"o}hning, D., Dietz, E., Schaub, R., Schlattmann, P., and Lindsay, B.~G.
+  (1994).
+\newblock The distribution of the likelihood ratio for mixtures of densities
+  from the one-parameter exponential family.
+\newblock {\em Annals of the Institute of Statistical Mathematics}, {\bf
+  46}(2), 373--388.
+
+\bibitem[Dasgupta and Raftery(1998)]{dasgupta1998}
+Dasgupta, A. and Raftery, A.~E. (1998).
+\newblock Detecting features in spatial point processes with clutter via
+  model-based clustering.
+\newblock {\em Journal of the American Statistical Association}, {\bf 93}(441),
+  294--302.
+
+\bibitem[Dempster {\em et~al.}(1977)]{dempster1977}
+Dempster, A.~P., Laird, N.~M., and Rubin, D.~B. (1977).
+\newblock Maximum likelihood from incomplete data via the em-algorithm.
+\newblock {\em Journal of the Royal Statistical Society B}, {\bf 39}, 1--38.
+
+\bibitem[Do\v{g}ru {\em et~al.}(2016)]{dogru2016}
+Do\v{g}ru, F., Bulut, Y., and Arslan, O. (2016).
+\newblock Finite mixtures of matrix variate t distributions.
+\newblock {\em Gazi Univ. J. Sci.}, {\bf 29}(2), 335--341.
+
+\bibitem[Flynn(2023)]{flynn2023}
+Flynn, T. (2023).
+\newblock {MatrixVariateEA: An Evolutionary Algorithm for Model-Based
+  Clustering}.
+\newblock \url{https://github.com/TommyJohnFlynn/MatrixVariateEA.jl}.
+
+\bibitem[Gallaugher and McNicholas(2018)]{gallaugher2018}
+Gallaugher, M. P.~B. and McNicholas, P.~D. (2018).
+\newblock Finite mixtures of skewed matrix variate distributions.
+\newblock {\em Pattern Recognition}, {\bf 80}, 83--93.
+
+\bibitem[Gupta and Nagar(1999)]{gupta1999}
+Gupta, A. and Nagar, D. (1999).
+\newblock {\em Matrix Variate Distributions}.
+\newblock Monographs and Surveys in Pure and Applied Mathematics. Taylor \&
+  Francis.
+
+\bibitem[Hastie {\em et~al.}(2009)]{hastie2009}
+Hastie, T., Tibshirani, R., and Friedman, J. (2009).
+\newblock {\em The Elements of Statistical Learning}.
+\newblock Springer, New York.
+
+\bibitem[Hubert and Arabie(1985)]{hubert1985}
+Hubert, L. and Arabie, P. (1985).
+\newblock Comparing partitions.
+\newblock {\em Journal of Classification}, {\bf 2}(1), 193--218.
+
+\bibitem[Keribin(2000)]{keribin2000}
+Keribin, C. (2000).
+\newblock Consistent estimation of the order of mixture models.
+\newblock {\em Sankhy{\=a}: The Indian Journal of Statistics, Series A}, pages
+  49--66.
+
+\bibitem[Leroux(1992)]{leroux1992}
+Leroux, B.~G. (1992).
+\newblock Consistent estimation of a mixing distribution.
+\newblock {\em The Annals of Statistics}, pages 1350--1360.
+
+\bibitem[Lindsay(1995)]{lindsay1995}
+Lindsay, B. (1995).
+\newblock Mixture models: Theory, geometry, and applications.
+\newblock In {\em NSF-CBMS Regional Conference Series in Probability and
+  Statistics}, volume~5. Institute of Mathematical Statistics, Hayward.
+
+\bibitem[Martínez and Vitrià(2000)]{martinez2000}
+Martínez, A.~M. and Vitrià, J. (2000).
+\newblock Learning mixture models using a genetic version of the em algorithm.
+\newblock {\em Pattern Recognition Letters}, {\bf 21}(8), 759--769.
+
+\bibitem[McNicholas(2016a)]{mcnicholas2016a}
+McNicholas, P.~D. (2016a).
+\newblock {\em Mixture Model-Based Classification}.
+\newblock Chapman \& Hall/CRC Press, Boca Raton.
+
+\bibitem[McNicholas(2016b)]{mcnicholas2016b}
+McNicholas, P.~D. (2016b).
+\newblock Model-based clustering.
+\newblock {\em Journal of Classification}, {\bf 33}(3), 331--373.
+
+\bibitem[McNicholas {\em et~al.}(2010)]{mcnicholas2010}
+McNicholas, P.~D., Murphy, T.~B., McDaid, A.~F., and Frost, D. (2010).
+\newblock Serial and parallel implementations of model-based clustering via
+  parsimonious gaussian mixture models.
+\newblock {\em Computational Statistics \& Data Analysis}, {\bf 54}(3),
+  711--723.
+
+\bibitem[McNicholas {\em et~al.}(2020)]{mcnicholas2020}
+McNicholas, S.~M., McNicholas, P.~D., and Ashlock, D.~A. (2020).
+\newblock An evolutionary algorithm with crossover and mutation for model-based
+  clustering.
+\newblock {\em Journal of Classification}, pages 1--16.
+
+\bibitem[Pernkopf and Bouchaffra(2005)]{pernkopf2005}
+Pernkopf, F. and Bouchaffra, D. (2005).
+\newblock Genetic-based em algorithm for learning gaussian mixture models.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  {\bf 27}(8), 1344--1348.
+
+\bibitem[Pocuca {\em et~al.}(2019)]{pocuca2019}
+Pocuca, N., Gallaugher, M. P.~B., Clark, K.~M., and McNicholas, P.~D. (2019).
+\newblock Assessing and visualizing matrix variate normality.
+
+\bibitem[{R Core Team}(2023)]{R}
+{R Core Team} (2023).
+\newblock {R: A Language and Environment for Statistical Computing}.
+\newblock {R Foundation for Statistical Computing}.
+
+\bibitem[Rand(1971)]{rand1971}
+Rand, W.~M. (1971).
+\newblock Objective criteria for the evaluation of clustering methods.
+\newblock {\em Journal of the American Statistical Association}, {\bf 66}(336),
+  846--850.
+
+\bibitem[Schwarz(1978)]{schwarz1978}
+Schwarz, G. (1978).
+\newblock Estimating the dimension of a model.
+\newblock {\em The Annals of Statistics}, {\bf 6}(2), 461--464.
+
+\bibitem[Silva {\em et~al.}(2023)]{silva2023}
+Silva, A., Qin, X., Rothstein, S.~J., McNicholas, P.~D., and Subedi, S. (2023).
+\newblock {Finite mixtures of matrix variate Poisson-log normal distributions
+  for three-way count data}.
+\newblock {\em Bioinformatics}, {\bf 39}(5), btad167.
+
+\bibitem[Srinivasan(1993)]{landsat}
+Srinivasan, A. (1993).
+\newblock {Statlog (Landsat Satellite)}.
+\newblock UCI Machine Learning Repository.
+\newblock {DOI}: https://doi.org/10.24432/C55887.
+
+\bibitem[Tiedeman(1955)]{tiedeman1955}
+Tiedeman, D.~V. (1955).
+\newblock On the study of types.
+\newblock In {\em Symposium on pattern analysis}.
+
+\bibitem[Titterington {\em et~al.}(1985)]{titterington1985}
+Titterington, D., Smith, A., and Makov, U. (1985).
+\newblock {\em Statistical analysis of finite mixture distributions}.
+\newblock John Wiley \& Sons, Chichester.
+
+\bibitem[Tomarchio {\em et~al.}(2023)]{matrixmixtures}
+Tomarchio, S.~D., Gallaugher, M.~P., Punzo, A., and McNicholas, P.~D. (2023).
+\newblock {\em MatrixMixtures: Model-Based Clustering via Matrix-Variate
+  Mixture Models}.
+\newblock R package version 1.0.0.
+
+\bibitem[Viroli(2011)]{viroli2011}
+Viroli, C. (2011).
+\newblock Finite mixtures of matrix normal distributions for classifying
+  three-way data.
+\newblock {\em Statistical Computing}, {\bf 21}(4), 511--522.
+
+\bibitem[Wolfe(1963)]{wolfe1963}
+Wolfe, J. (1963).
+\newblock {\em Object Cluster Analysis of Social Areas}.
+\newblock Master's thesis, University of California, Berkeley.
+
+\bibitem[Wolfe(1965)]{wolfe1965}
+Wolfe, J. (1965).
+\newblock A computer program for the maximum-likelihood analysis of types.
+\newblock {\em USNPRA Technical Bulletin}, pages 15--65.
+
+\end{thebibliography}
