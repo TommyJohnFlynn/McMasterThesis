@@ -2,12 +2,8 @@
 %       LOADS PACKAGES & CONFIGURES DOCUMENT STYLE        %
 %--------------------------------------------------------------------------------------------%
 \documentclass[12pt]{report} 
-\usepackage{setspace}
 \usepackage{amscd,amsmath,amssymb,amsthm} 
-\usepackage{lipsum}
 \usepackage{epsfig,psfrag,epstopdf} 
-\usepackage{fancyhdr} 
-\usepackage{lastpage} 
 \usepackage{graphicx,wrapfig} 
 \usepackage{esvect}
 \usepackage{mathtools,cancel}
@@ -16,7 +12,6 @@
 \usepackage{natbib}
 \bibliographystyle{apalike}
 \usepackage{hyperref} 
-\hypersetup{pdfpagemode=FullScreen, linktoc=section, colorlinks=true}\usepackage{placeins}
 \usepackage{mathtools}
 \usepackage{bm}
 \usepackage{multirow}
@@ -27,38 +22,39 @@
 \DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n} 
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\ra}{rank}
-%%%%%%%%%%%%%%%%%%
-\topmargin=-.5cm
-\evensidemargin=0cm
-\oddsidemargin=0cm
-\textwidth=16.5cm
-\textheight=21.5cm
-\headsep=1cm
-%%%%%%%%%%%%%%%%%%
-\linespread{1.0}
-\newcommand{\heading}{\pagestyle{fancy}\lhead{M.Sc. Thesis - Tommy Flynn} \rhead{McMaster - Mathematics and Statistics}\cfoot{\thepage} 
-\renewcommand\headrulewidth{0.4pt}
-\newcommand{\wkTitle}{An Evolutionary Algorithm for Matrix-Variate Model-Based Clustering} 
-\newcommand{\AuthorName}{Tommy Flynn}}
-%%%%%%%%%%%%%%%%%%%
+\usepackage[nodisplayskipstretch]{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{custom} 
+\include{definitions}
 
-
-\begin{document}   
-\setstretch{2}
-
+\begin{document}
 
 %------------------------------------------------------%
 %      	TABLE OF CONTENTS             %
 %------------------------------------------------------%
+\beforepreface
 
+\include{dedic}
+\include{abstr}
+\include{acknowledgements}
 
-\pagenumbering{roman} 
 \tableofcontents
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
+\label{NumPrefacePages}
 \newpage
-\pagenumbering{arabic} 
-\heading
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhead[L]{M.Sc. Thesis - Tommy Flynn}
+\fancyhead[R]{McMaster - Mathematics and Statistics}
+
 
 
 %---------------------------%
@@ -305,11 +301,11 @@ The balance between these two operators is crucial for the efficacy of an EA. Na
 %----------------------------------------------------------------------------------%
 \subsection{Evolutionary Algorithms For Model-Based Clustering}
 %----------------------------------------------------------------------------------%
-Early applications of EAs for model-based clustering can be found in \citet{martinez2000} and \citet{pernkopf2005}. From the start, the primary objective has always been to address the local maxima problem associated with the EM algorithm. The original approach was based on evolving the parameters of a multivariate Gaussian mixture model, that is, apply crossover and mutation to the parameters in $\bm{\vartheta}$. The optimization criterion used was the minimum description length (MDL).
+Early applications of EAs for model-based clustering can be found in \citet{martinez2000} and \citet{pernkopf2005}. In an attempt to address the local maxima problem associated with the EM algorithm, the original works focused on evolving the parameters of a multivariate Gaussian mixture model. That is, they applied crossover and mutation directly to the parameters in $\bm{\vartheta}$. The fitness of potential solutions was assessed using the minimum description length (MDL)
 
-In more recent studies, \citet{andrews2013} and \citet{mcnicholas2020} introduced a slightly different approach. Instead of evolving the parameter space, they applied crossover and mutation to the population of latent cluster membership matrices $\mathbfcal{Z}_k$. In this case, the fitness function optimized was the observed-log likelihood, calculated from the parameter updates derived from the data clustering.
+More recently, \citet{andrews2013} and \citet{mcnicholas2020} introduced a slightly different approach. Instead of evolving the parameter space, they applied crossover and mutation to a population of latent cluster membership matrices $\mathbfcal{Z}_k$. In this case, the fitness function was the observed-log likelihood calculated at the parameter updates. 
 
-The main advantage of evolving the cluster membership labels instead of the model parameters lies in the size of the respective spaces. Data clusterings are a subset of binary matrices of size $G \times N$, making the hard cluster membership space finite, in contrast to the infinite parameter space \citep{andrews2013}.
+The main advantage of evolving the cluster membership labels instead of the model parameters lies in the size of the respective spaces. The total number of possible classifications of $N$ observations into $G$ groups is finite, in contrast to the infinite parameter space \citep{andrews2013}.
 
 \citet{mcnicholas2020} successfully developed an EA for multivariate Gaussian model-based clustering, utilizing two-point crossover and a greedy mutation function. In this work, we aim to extend this algorithm to the matrix-variate setting, allowing for broader applicability.
 
@@ -424,7 +420,7 @@ If the mutation increases fitness, the swap is kept; otherwise, the swap is reve
 %-------------------------%
 \caption{EA for matrix-variate model-based clustering.}
 \begin{algorithmic}[1]
-\setstretch{1.15} 
+\setstretch{1} 
 	\Statex \textbf{Input:}
      		\Statex $ {\mathbfcal{X}} = [{\bf X}_1, \dots, {\bf X}_N ]\gets$ $n \times p \times N$ array of observations
 		\Statex $ \tilde{ {\bf \mathfrak{Z} }} = [\tilde{ {\mathbfcal{Z}}}_{1}, \dots, \tilde{ {\mathbfcal{Z}}}_{K}]  \gets$ $N \times G \times K$ array of membership labels \Comment{random if not specified}
@@ -463,7 +459,7 @@ If the mutation increases fitness, the swap is kept; otherwise, the swap is reve
 \Statex \textbf{Return} final population $\tilde{ {\bf \mathfrak{Z} }}$
 \end{algorithmic}
 \end{algorithm}
-\FloatBarrier 
+
 
 
 
@@ -541,8 +537,7 @@ The EM algorithm selected $G=2$ as the optimal model, whereas the EA identified 
 
 \begin{table}[!htbp]
   \caption{Mean and standard deviation of ARI, runtime, and likelihood ratio for EA and EM associated with Simulation 1.}
-  \setstretch{1.25}
-\vspace{0.25cm}
+\vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
     &\textbf{ARI}& \textbf{Runtime (sec)}  & \textbf{Likelihood Ratio} \\
@@ -618,7 +613,6 @@ The optimal model selected by the EM algorithm was $G=3$, while the EA identifie
 
 \begin{table}[!ht]
   \caption{Mean and standard deviation of ARI, runtime, and likelihood ratio for EA and EM associated with Simulation 2.}
-\setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -653,7 +647,6 @@ This dataset is a collection of digital images captured by the Landsat program, 
 
 \begin{table}[!htbp]
   \caption{Description of the Landsat test set classes and observation count.}
-  \setstretch{1.5}
   \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{cXc}
     \toprule
@@ -679,7 +672,6 @@ For our analysis, we focused on the first three classes from the test set: red s
 
 \begin{table}[!htbp]
   \caption{Converged log-likelihood, ARI, runtime, and EA to EM likelihood ratio associated with the Landsat dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -693,7 +685,6 @@ For our analysis, we focused on the first three classes from the test set: red s
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EA MAP classifications associated with the Landsat dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -708,7 +699,6 @@ For our analysis, we focused on the first three classes from the test set: red s
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EM MAP classifications associated with the Landsat dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -739,7 +729,6 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 
 \begin{table}[!htbp]
   \caption{Converged log-likelihood, ARI, runtime, and EA to EM likelihood ratio associated with the handwritten digits dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -754,7 +743,6 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EA MAP classifications associated with the handwritten digits dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -768,7 +756,6 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 
 \begin{table}[!ht]
   \caption{Cross-tabulation of the EM MAP classifications associated with the handwritten digits dataset.}
-  \setstretch{1.5}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -819,8 +806,9 @@ Future research could focus on improving the EA's runtime performance, either by
 %-------------------------------%
 %      BIBLIOGRAPHY     %
 %-------------------------------%
-\clearpage
-\newpage
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{ref.bib}
+
  \end{document}

@@ -1,8 +1,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Illustration of the crossover operator, swapping distinct rows of the parent solution to create a child with similar genetic material.}}{19}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Illustration of the mutation operator, swapping distinct elements in a random row of a surviving parent for a slightly modified solution.}}{20}{figure.3.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Illustration of the crossover operator, swapping distinct rows of the parent solution to create a child with similar genetic material.}}{17}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Illustration of the mutation operator, swapping distinct elements in a random row of a surviving parent for a slightly modified solution.}}{18}{figure.3.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

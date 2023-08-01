@@ -1,3 +1,6 @@
+\contentsline {chapter}{Abstract}{iv}{chapter*.1}%
+\contentsline {chapter}{List of Tables}{vii}{section*.3}%
+\contentsline {chapter}{List of Figures}{viii}{section*.5}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Background}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Matrix-Variate Distributions}{3}{section.2.1}%
@@ -6,25 +9,25 @@
 \contentsline {subsection}{\numberline {2.3.1}Historical Perspective}{5}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Finite Mixture Models}{6}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Parameter Estimation}{7}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Convergence Criterion}{10}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Model Selection}{11}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Model Performance}{12}{subsection.2.3.6}%
-\contentsline {subsection}{\numberline {2.3.7}Benefits Over Vectorization}{13}{subsection.2.3.7}%
-\contentsline {section}{\numberline {2.4}Evolutionary Computation}{13}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Evolutionary Algorithms}{13}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Genetic Operators}{14}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Evolutionary Algorithms For Model-Based Clustering}{15}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Methods}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Model and Fitness Function}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Algorithm Design}{18}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Procedure}{22}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Simulation}{23}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simulation 1}{24}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Simulation 2}{25}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Application}{27}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Landsat Satellite Dataset}{27}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Handwritten Digits Dataset}{31}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusions}{33}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Discussion}{33}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Future Work}{34}{section.6.2}%
-\contentsline {chapter}{Bibliography}{35}{section.6.2}%
+\contentsline {subsection}{\numberline {2.3.4}Convergence Criterion}{9}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Model Selection}{10}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Model Performance}{10}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Benefits Over Vectorization}{11}{subsection.2.3.7}%
+\contentsline {section}{\numberline {2.4}Evolutionary Computation}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Evolutionary Algorithms}{12}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Genetic Operators}{13}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Evolutionary Algorithms For Model-Based Clustering}{13}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Methods}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Model and Fitness Function}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Algorithm Design}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Procedure}{18}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Simulation}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation 1}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Simulation 2}{23}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Application}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Landsat Satellite Dataset}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Handwritten Digits Dataset}{29}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusions}{31}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Discussion}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Future Work}{32}{section.6.2}%
+\contentsline {chapter}{Bibliography}{33}{section*.7}%
