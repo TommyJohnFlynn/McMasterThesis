@@ -83,7 +83,7 @@ In response to the growing interest in matrix-variate data applications, this wo
 %-------------------------%
 \chapter{Background}
 %-------------------------%
-The following sections provide essential context for this research, covering matrix variate distributions, supervised and unsupervised learning, clustering, and evolutionary computation. Clustering is presented through the model-based paradigm including discussions on finite mixtures of matrix-variate distributions, parameter estimation, convergence criterion, model selection, and model performance. Evolutionary computation is presented with a focus on general evolutionary algorithms, the genetic operators crossover and mutation, and evolutionary algorithms for model-based clustering. 
+The following sections provide essential context for this research, covering matrix variate distributions, supervised and unsupervised learning, clustering, and evolutionary computation. Clustering is presented through the model-based paradigm including discussions on finite mixtures of matrix-variate distributions, parameter estimation, convergence criterion, model selection, and model performance. Evolutionary computation is presented with a focus on evolutionary algorithms, the genetic operators crossover and mutation, and their application to model-based clustering. 
 
 
 
@@ -106,7 +106,7 @@ where $\mathcal{N}_{np}(\cdot)$ is the $np$ multivariate normal distribution, $\
 %---------------------------------------------------------------------------------------%
 \section{Supervised, Unsupervised, and Semi-Supervised Learning}
 %---------------------------------------------------------------------------------------%
-Machine learning algorithms can be broadly categorized into three varieties: supervised, unsupervised, and semi-supervised. The level of supervision indicates the presence and utilization of labeled data. In regression, labeled data corresponds to the true values of the response variable associated with each input, while in classification, labels indicate group membership. Unsupervised learning is the most general case, where no observations are a priori labeled or are treated as such. In contrast, the other varieties involve some labeled data, which is then used to infer labels for the unlabeled observations. In supervised learning, only the labeled data is used to infer labels for the unlabeled data. Mediating the previous varieties is semi-supervised learning, which leverages all available data to infer labels for the unlabeled data. 
+Machine learning algorithms can be broadly categorized into three varieties: supervised, unsupervised, and semi-supervised. The level of supervision indicates the presence and utilization of labeled data. In regression, labeled data corresponds to the true values of the response variable associated with each input, while in classification, labels indicate group membership. Unsupervised learning is the most general case, where no observations are a priori labeled or are treated as such. In contrast, the other varieties involve some labeled data, which is then used to infer labels for the unlabeled observations. In supervised learning, only the labeled data is used to infer labels for the unlabeled data. Mediating the previous two varieties is semi-supervised learning, which leverages all available data to infer labels for the unlabeled data. 
 
 
 
@@ -119,7 +119,7 @@ Machine learning algorithms can be broadly categorized into three varieties: sup
 %-----------------------------------------%
 \subsection{Historical Perspective}
 %-----------------------------------------%
-Classification is a paradigm in which group membership labels are assigned to unlabelled data. Unsupervised classification, or clustering, assumes that all observations are unlabelled or are treated as such. The groups to which observations are assigned are referred to as classes or clusters. Defining a cluster formally is surprisingly nontrivial. Intuitively, we want observations within a cluster to exhibit shared characteristics, making them more similar to each other compared to observations in other clusters. 
+Classification is a paradigm in which group membership labels are assigned to unlabelled data. Unsupervised classification, or clustering, assumes that all observations are unlabelled or are treated as such. The groups to which observations are assigned are referred to as classes or clusters. Defining a cluster formally is surprisingly nontrivial. Intuitively, we want observations within a cluster to exhibit shared characteristics, making them more similar to each other than observations in other clusters. 
 However, this definition is flawed because it elicits a solution where each observation is assigned to its own cluster \citet{mcnicholas2016a}. 
 
 A more suitable definition can be constructed using finite mixture models. \citet{mcnicholas2016b} explains that the framing of a cluster in terms of a component of a mixture model can be traced back to \citet{tiedeman1955}. Consider a population of $G$ groups where the observations in each group are generated by a Gaussian density function. By censoring the group membership of each observation, we are left with a mixture of unknown densities. The reconstruction of the original $G$ densities is what is known as clustering \citep{tiedeman1955}. Subsequently, \citet{wolfe1963} considered a cluster to be a component of a mixture model and played a pivotal role in pioneering multivariate Gaussian model-based clustering \citep{wolfe1965}. \citet{wolfe1963} also explored two alternative definitions of a cluster. The first definition characterizes a cluster as a mode in a distribution, while the second is based on the similarity between observations. \citet{mcnicholas2016a} synthesizes the historical development of a cluster and offers a refined definition as follows:
@@ -138,7 +138,7 @@ The main objective of model-based clustering is maximize the likelihood of a $G$
 \begin{equation*}
 f({\bf X} | \bm{\vartheta}) = \sum_{g=1}^G \pi_g f_g({\bf X} | \bm{\theta}_g),
 \end{equation*}
-where $f_g(\cdot)$ is the gth component density, $\pi_g >0$ is the gth mixing proportion with $\sum_{g=1}^G\pi_g = 1$, and $\bm{\vartheta} = (\bm{\pi}, \bm{\theta}_1, \bm{\theta}_2, \dots, \bm{\theta}_G)$ is the vector of parameters with $\bm{\pi} = (\pi_1, \pi_2, \dots, \pi_G)$. In most applications, the component density functions are taken to be identical, indicated as $$f_g({\bf X} | \bm{\theta}_g) = f({\bf X} | \bm{\theta}_g),$$ for all $g$. Building on the ideas in \citet{wolfe1965}, \citet{viroli2011} introduces the use of finite mixtures of matrix-variate normals for clustering three-way data. For the subsequent sections, we denote the density of a mixture of matrix-variate variate normals as
+where $f_g(\cdot)$ is the gth component density, $\pi_g >0$ is the gth mixing proportion with $\sum_{g=1}^G\pi_g = 1$, and $\bm{\vartheta} = (\bm{\pi}, \bm{\theta}_1, \bm{\theta}_2, \dots, \bm{\theta}_G)$ is the vector of parameters with $\bm{\pi} = (\pi_1, \pi_2, \dots, \pi_G)$. In most applications, the component density functions are taken to be identical, indicated as $$f_g({\bf X} | \bm{\theta}_g) = f({\bf X} | \bm{\theta}_g),$$ for all $g$. Building on the ideas in \citet{wolfe1965}, \citet{viroli2011} introduces the use of finite mixtures of matrix-variate normals for clustering three-way data. In the subsequent sections, we denote the density of a mixture of matrix-variate variate normals as
 \begin{equation*}f({\bf X} | \bm{\vartheta}) = \sum_{g=1}^G \pi_g \phi({\bf X} | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g),\end{equation*}
 where $\bm{\vartheta} = (\pi_1, \dots, \pi_g, {\bf M}_1, {\bf \Sigma}_1, {\bf \Psi}_1, \dots, {\bf M}_G, {\bf \Sigma}_G, {\bf \Psi}_G)$.
 
@@ -215,7 +215,7 @@ for $g = 1, \dots, G$. The E and M steps iterate until some convergence criterio
 %-----------------------------------------%
 \subsection{Convergence Criterion}
 %-----------------------------------------%
- To determine convergence, we use a criterion based on the Aitken acceleration \citep{aitken1926}. The Aitken acceleration at iteration $t$ is defined as 
+To determine convergence of the EM algorithm, we use a criterion based on the Aitken acceleration \citep{aitken1926}. The Aitken acceleration at iteration $t$ is defined by 
 \begin{equation*}
 a^{(t)} = \frac{l^{(t+1)} - l^{(t)} }{l^{(t)} - l^{(t-1)}},
 \end{equation*}
@@ -223,7 +223,7 @@ where $l^{(t)}$ is the observed log-likelihood at iteration $t$. From this, \cit
 \begin{equation*}
 l_{\infty}^{(t+1)} = l^{(t)} + \frac{1}{1- a^{(t)}} (l^{(t+1)} - l^{(t)}).
 \end{equation*}
-As in \citet{mcnicholas2010}, the EM algorithm terminates when 
+In accordance with \citet{mcnicholas2010}, the EM algorithm terminates when 
 \begin{equation*}
 0< l_{\infty}^{(k+1)} - l^{(k)} < \varepsilon,
 \end{equation*}
@@ -247,7 +247,7 @@ where $l(\hat{\bm{\vartheta}})$ is the maximized log-likelihood, $N$ is the numb
 %----------------------------------------%
 \subsection{Model Performance}
 %----------------------------------------%
-In the subsequent clustering, labeled datasets are treated as if they were unlabelled. Accordingly, we can assess model performance by comparing MAP classifications to the ground truth. The Rand Index (RI) \citep{rand1971} serves as a metric for quantifying the agreement between two sets of class assignments and is defined as
+In the subsequent clustering, labeled datasets are treated as if they were unlabelled. Accordingly, we can assess model performance by comparing MAP classifications to the ground truth. The Rand Index (RI) \citep{rand1971} serves as a metric for quantifying the agreement between two sets of class assignments and is defined by
 \begin{equation*}
 \text{RI} = \frac{\text{number of pairwise agreements}}{\text{total number of pairs}}.
 \end{equation*} 
@@ -255,7 +255,7 @@ Pairwise agreement occurs when two observations are correctly assigned labels in
 \begin{equation*}
 \text{ARI} = \frac{\text{RI}  - \mathbb{E}[\text{RI} ]}{\max(\text{RI}) - \mathbb{E}[\text{RI} ]}.
 \end{equation*} 
-Consequently, the ARI has an expected value of 0 under random assignment and achieves a value of 1 for perfect assignment. It is important to note that negative values are now possible, indicating worse than random assignment.
+Consequently, the ARI has an expected value of 0 under random assignment and achieves a value of 1 for perfect assignment. It is important to note that the corrections permits negative values, indicating worse than random assignment.
 
 
 
@@ -283,7 +283,7 @@ Evolutionary computation (EC) is a paradigm inspired by the principles of biolog
 %-------------------------------------------%
 An evolutionary algorithm (EA) is a particular form of EC that exploits the concepts of reproduction and natural selection. The goal is to maximize a fitness function by evolving a population of candidate solutions. In contrast to other optimization techniques that yield only a single solution, EAs offer the advantage of obtaining a population of optimal solutions. 
 
-To begin, the first generation of candidate solutions are initialized. For each generation, genetic operators such as crossover and mutation are applied to the population members giving rise to new individuals. Only the fittest individuals among the population survive ensuring the propagation of advantageous traits. This process continues until the population stagnates to a collection of maximally fit solutions.  In terms of natural selection, the traits of the final population have been selected due to their reproductive success. Note that the fitness of a particular solution is determined entirely by the fitness function under consideration. Consequently, a problem may elicit multiple fitness functions resulting in different optimal populations. 
+To begin, the first generation of candidate solutions is initialized. For each generation, genetic operators such as crossover and mutation are applied to the population members giving rise to new individuals. Only the fittest individuals among the population survive ensuring the propagation of advantageous traits. This process continues until the population stagnates to a collection of maximally fit solutions.  In terms of natural selection, the traits of the final population have been selected due to their reproductive success. Note that the fitness of a particular solution is determined entirely by the fitness function under consideration. Consequently, a problem may elicit multiple fitness functions resulting in different optimal populations. 
 
 
 
@@ -307,7 +307,7 @@ More recently, \citet{andrews2013} and \citet{mcnicholas2020} introduced a sligh
 
 The main advantage of evolving the cluster membership labels instead of the model parameters lies in the size of the respective spaces. The total number of possible classifications of $N$ observations into $G$ groups is finite, in contrast to the infinite parameter space \citep{andrews2013}.
 
-\citet{mcnicholas2020} successfully developed an EA for multivariate Gaussian model-based clustering, utilizing two-point crossover and a greedy mutation function. In this work, we aim to extend this algorithm to the matrix-variate setting, allowing for broader applicability.
+\citet{mcnicholas2020} successfully developed an EA for multivariate Gaussian model-based clustering, using two-point crossover and a greedy mutation function. In this work, we aim to extend this algorithm to the matrix-variate setting, allowing for broader applicability.
 
 
 
@@ -375,10 +375,10 @@ $$\tilde{\bf {\mathbfcal{Z}}}_{k} =
 \end{bmatrix}   $$
 \vspace{-0.5cm}
 \setstretch{1}
-\caption{Illustration of the crossover operator, swapping distinct rows of the parent solution to create a child with similar genetic material.}
+\caption{Illustration of the crossover operator, randomly swapping distinct rows $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent solution to create a child with similar genetic material.}
 \end{figure}
 
-If the labels are identical, we continue randomly selecting rows until two distinct labels are found. After crossover, the population size grows to $K + KJ$, including the original parents and their offspring. The population is then organized into a list of descending fitness. From this list, the top $K$ solutions are selected to become the next generation of parents. This crossover step helps avoid stopping at local maxima of the fitness surface, i.e., the observed log-likelihood. 
+If the labels are identical, we continue randomly selecting rows until two distinct labels are found. After crossover, the population size grows to $K + KJ$, including the original parents and their offspring. The population is then organized into a list of descending fitness, from which we select the top $K$ solutions to become the next generation of parents. This crossover step helps avoid stopping at local maxima of the fitness surface, i.e., the observed log-likelihood. 
 
 Because swapping alone does not guarantee better clustering results, we now introduce a greedy mutation step. For each of the surviving $K$ individuals, we randomly swap distinct elements in a random row until their fitness improves. Suppose we randomly select label $\tilde{\bf z}_2$ from the parent in Figure 3.2. Continuing, we may randomly select distinct elements $\tilde{z}_{22}, \tilde{z}_{2G} \in \tilde{\bf z}_2$ and swap. 
 \vspace{0.5cm}
@@ -407,7 +407,7 @@ $$\tilde{ {\bf \mathbfcal{Z}} }_{k}  =
 \end{bmatrix}$$
 \vspace{-0.5cm}
 \setstretch{1}
-\caption{Illustration of the mutation operator, swapping distinct elements in a random row of a surviving parent for a slightly modified solution.}
+\caption{Illustration of the mutation operator, swapping distinct elements $\tilde{z}_{22}$ and $\tilde{z}_{2G}$ in a random row of a surviving parent for a slightly modified solution.}
 \end{figure}
 
 If the mutation increases fitness, the swap is kept; otherwise, the swap is reversed. This process continues until either a profitable mutation is found or all rows have been exhausted leaving the parent unchanged. If a generation remains unchanged after applying both crossover and mutation, it is considered a stagnation. After a predetermined number of stagnations, the algorithm terminates, resulting in a population of $K$ fit solution matrices.
@@ -416,7 +416,7 @@ If the mutation increases fitness, the swap is kept; otherwise, the swap is reve
 
 
 %-------------------------%
-\begin{algorithm}[th]
+\begin{algorithm}[H]
 %-------------------------%
 \caption{EA for matrix-variate model-based clustering.}
 \begin{algorithmic}[1]
@@ -467,7 +467,7 @@ If the mutation increases fitness, the swap is kept; otherwise, the swap is reve
 %-----------------------%
 \section{Procedure}
 %-----------------------%
-The subsequent data analysis adopts the clustering paradigm, treating all membership labels as unknown. For each dataset, two matrix-variate normal mixtures are applied: one using the EM algorithm for parameter estimation and the other using our EA. Both algorithms are initialized with a random start. Let $\mathcal{G}$ be the true number of classes, then algorithms are run for $G=2,\dots, \mathcal{G} + 1$. The value of $G$ which yields the largest BIC is selected. In addition to selecting $G$, the EA must also determine the number of parents $K \in \{1, 2, 3\}$, and the number of clones $J \in \{4, 8, 12\}$. The number of parents is relatively low to ensure that mutations are applied sparingly, while the number of children is large to encourage crossover. For convergence, the EM algorithm uses the Aitken's based criterion with a tolerance of $\varepsilon =10^{-6}$, while the EA uses $S=3$ stagnations. Model performance is based on the final converged log-likelihood, AIC, total runtime, and EA to EM likelihood ratio. The EM algorithm is implemented using the \texttt{R} package \citet{matrixmixtures} and the EA is available in \texttt{Julia} at \citet{flynn2023} \citep{R, Julia}.
+The subsequent data analysis adopts the clustering paradigm, treating all membership labels as unknown. For each dataset, two matrix-variate normal mixtures are applied: one using the EM algorithm for parameter estimation and the other using our EA. Both algorithms are initialized with a random start. Let $\mathcal{G}$ be the true number of classes, then the algorithms are run for $G=2,\dots, \mathcal{G} + 1$. The value of $G$ which yields the largest BIC is selected. In addition to selecting $G$, the EA must also determine the number of parents $K \in \{1, 2, 3\}$, and the number of clones $J \in \{4, 8, 12\}$. The number of parents is relatively low to ensure that mutations are applied sparingly, while the number of children is large to encourage crossover. For convergence, the EM algorithm uses the Aitken's based criterion with a tolerance of $\varepsilon =10^{-6}$, while the EA uses $S=3$ stagnations. Model performance is based on the final converged log-likelihood, AIC, total runtime, and EA to EM likelihood ratio. The EM algorithm is implemented using the \texttt{R} package \citet{matrixmixtures} and the EA is available in \texttt{Julia} at \citet{flynn2023} \citep{R, Julia}.
 
 
 
@@ -635,7 +635,7 @@ The optimal model selected by the EM algorithm was $G=3$, while the EA identifie
 %------------------------%
 \chapter{Application}
 %------------------------%
-The following sections detail an investigation of two real world datasets. First is the Landsat satellite dataset, which involves $3 \times 3$ digital images of the same regions taken in four different spectral bands. The pixels are arranged into matrices of size $4 \times 9$ and three classes are used. The second dataset contains $16 \times 16$ greyscale images of handwritten digits. For clustering, we focus on digits 1 and 7.  
+The following sections detail an investigation of two real world datasets. First is the Landsat satellite dataset, which involves $3 \times 3$ digital images of the same regions taken in four different spectral bands. The pixels are arranged into matrices of size $4 \times 9$ and three classes are used. The second dataset contains $16 \times 16$ greyscale images of handwritten digits. We focus on clustering digits 1 and 7.  
 
 
 
@@ -643,8 +643,8 @@ The following sections detail an investigation of two real world datasets. First
 %-------------------------------------------%
 \section{Landsat Satellite Dataset}
 %-------------------------------------------%
-This dataset is a collection of digital images captured by the Landsat program, which is a series of Earth-observing satellites managed by NASA and the United States Geological Survey (USGS). The original data was purchased from NASA by the Australian Centre for Remote Sensing and subsequently donated to the UCI machine learning repository in a preprocessed form \citep{landsat}. The preprocessing includes converting the original binary values to ASCII, labelling the data based on site visits, removing data to prevent image reconstruction, and partitioning the data into training and testing sets. In this dataset, four digital images of size $3 \times 3$ were taken of the same region in different spectral bands, corresponding to random matrices of size $4\times 9$. Two of the bands were in the visible spectrum, while two were in the infrared spectrum. The pixel intensities range from 0 to 255. The researchers identified seven classes of images based on the central pixels which are described in Table 5.1. Notably, class 6 was removed by the researchers due to doubts of the validity of the class.
-
+This dataset is a collection of digital images captured by the Landsat program, which is a series of Earth-observing satellites managed by NASA and the United States Geological Survey (USGS). The original data was purchased from NASA by the Australian Centre for Remote Sensing and subsequently donated to the UCI machine learning repository in a preprocessed form \citep{landsat}. The preprocessing includes converting the original binary values to ASCII, labelling the data based on site visits, removing data to prevent image reconstruction, and partitioning the data into training and testing sets. In this dataset, four digital images of size $3 \times 3$ were taken of the same region in different spectral bands, corresponding to random matrices of size $4\times 9$. Two of the bands were in the visible spectrum, while the other two were in the infrared spectrum. The pixel intensities range from 0 to 255. The researchers identified seven classes of images based on the central pixels which are described in Table 5.1. Notably, class 6 was removed by the researchers due to doubts of the validity of the class.
+\setcounter{table}{0}
 \begin{table}[!htbp]
   \caption{Description of the Landsat test set classes and observation count.}
   \vspace{0.5cm}
@@ -654,7 +654,7 @@ This dataset is a collection of digital images captured by the Landsat program, 
     \midrule
     1 & Red soil                        & 461 \\
     2 & Cotton crop                     & 224 \\
-    3 & Grey Soil                       & 396 \\
+    3 & Grey soil                       & 396 \\
     4 & Damp grey soil                  & 211 \\
     5 & Soil with vegetation stubble    & 237 \\
     6 & Mixture of all classes          & 0 \\
@@ -665,7 +665,7 @@ This dataset is a collection of digital images captured by the Landsat program, 
 
 Originally, this dataset was used for multivariate clustering by considering only a vector of the 4 central pixels, which is what the labels are based on. However, this approach neglects a significant amount of information along the borders which can be leveraged by matrix-variate distributions. Although we possess more information, the regions along the boundaries between classes are less distinct and pose a greater challenge to separate.
  
-For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA selected $G=4$ classes using the BIC. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. For the EA, the BIC selected an optimal model of $K=2$ parents and $J=8$ clones. Table 5.2 showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Moreover, Tables 5.3 and 5.4 present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. An EA to EM likelihood ratio of approximately 1.55 indicates a substantial improvement in likelihood. This increase in EA likelihood translated to a slight increase in ARI over the EM. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
+For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of size $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA selected $G=4$ classes using the BIC. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. The optimal EA was determined to be $K=2$ parents and $J=8$ clones. Table 5.2 showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Additionally, Tables 5.3 and 5.4 present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. Moreover, an EA to EM likelihood ratio of approximately 1.55 indicates a substantial improvement in likelihood. This increase in EA likelihood translated to a slight increase in ARI over the EM. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
 
 
 \newpage
@@ -723,7 +723,7 @@ Since the writing is mostly concentrated in the center, the outer rows and colum
 
 Our analysis focused on clustering digits 1 and 7 from the dataset. There were a total of $N=411$ observations from the test set, with 264 belonging to digit 1 and 147 to digit 7, corresponding to true proportions of approximately $\bm{\pi} = (0.64, 0.36)$. The EM algorithm identified the optimal number of classes as $G=2$, while the EA selected $G=2, K=2,$ and $J=4$. In Table 5.5, we present the log-likelihood, ARI, runtime, and EA to EM likelihood ratio. Additionally, Tables 5.6 and 5.7 display the cross-tabulation of EA and EM results, respectively.
 
-Remarkably, both algorithms showed identical clustering results in terms of likelihood and ARI. The cross-tabulations for EA and EM were also identical. However, we note that the EA required significantly more time to achieve the same results as the EM algorithm.
+Remarkably, both algorithms showed identical clustering results in terms of likelihood and ARI. The cross-tabulations for EA and EM were also identical. However, we note that the EA required significantly more runtime to achieve the same results as the EM algorithm.
 
 
 
@@ -788,7 +788,7 @@ This work has extended the current literature on EAs for model-based clustering 
 
 Simulation 1 featured datasets with well-separated groups generated by predetermined matrix-variate normal distributions. In Simulation 2, the datasets comprised additional groups that were more challenging to separate. Both the EA and EM algorithm performed similarly well on these datasets, with the EA showing a slightly superior likelihood performance and the EM algorithm having slightly better ARI performance.
 
-Moving to real-world datasets, the Landsat satellite dataset presented a more difficult clustering problem due to the non-distinct nature of the classes and the lack of clear borders between images. Here, the EA outperformed the EM algorithm in terms of both likelihood and ARI, showcasing its potential to handle complex and ill-defined problems more effectively. The second real-world dataset, containing handwritten digits of 1's and 7's, had much higher dimensions than the previous datasets. In this case, both the EA and EM performed equally well based on likelihood and ARI, although the EA struggled with runtime. 
+Moving to real-world datasets, the Landsat satellite dataset presented a more difficult clustering problem due to the lack of distinct borders between images. Here, the EA outperformed the EM algorithm in terms of both likelihood and ARI, showcasing its potential to handle complex and ill-defined problems more effectively. The second real-world dataset, containing handwritten digits of 1s and 7s, had a much larger dimensions than the previous datasets. In this case, both the EA and EM performed equally well based on likelihood and ARI, although the EA struggled with runtime. 
 
 Overall, the EA proves to be a competitive alternative for fitting model parameters in matrix-variate normal mixtures, consistently performing at least as well as the EM algorithm in terms of likelihood and ARI. However, its limitation lies in its runtime, which is understandable given its approach of finding multiple solutions and the nature crossover and mutation operators. Considering the results obtained, it is recommended to deploy the EM algorithm in most cases, as it is computationally more efficient. The EA should be reserved for scenarios where the problem complexity is particularly high.
 

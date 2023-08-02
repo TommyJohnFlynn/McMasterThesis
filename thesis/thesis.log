@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  1 AUG 2023 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  2 AUG 2023 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -819,7 +819,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.471 
+l.462 
       ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -895,7 +895,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [26
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) h
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -923,19 +923,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.714 \newpage
+              
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.714 \newpage
+              
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.714 \newpage
-              
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.714 \newpage
-              
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.6}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -963,19 +963,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [30
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.778 \chapter
+              {Conclusions}
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.6}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.778 \chapter
+              {Conclusions}
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.7}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.778 \chapter
-              {Conclusions}
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.8}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.778 \chapter
-              {Conclusions}
-pdfTeX warning (ext4): destination with the same identifier (name{table.5.9}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1041,11 +1041,11 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  13313 strings out of 476025
  211099 string characters out of 5790017
- 1873388 words of memory out of 5000000
+ 1872388 words of memory out of 5000000
  33338 multiletter control sequences out of 15000+600000
  526930 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,14n,76p,1237b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,14n,76p,1241b,622s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
@@ -1068,10 +1068,10 @@ e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
 ve/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/
 texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on thesis.pdf (47 pages, 312219 bytes).
+Output written on thesis.pdf (47 pages, 312739 bytes).
 PDF statistics:
- 698 PDF objects out of 1000 (max. 8388607)
- 599 compressed objects within 6 object streams
+ 701 PDF objects out of 1000 (max. 8388607)
+ 601 compressed objects within 7 object streams
  132 named destinations out of 1000 (max. 500000)
  273 words of extra memory for PDF output out of 10000 (max. 10000000)
 
