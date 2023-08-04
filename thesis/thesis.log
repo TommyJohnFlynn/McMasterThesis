@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  2 AUG 2023 15:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  4 AUG 2023 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -797,11 +797,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.412 
+l.416 
       ]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 421.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 426
+put line 425.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 430
 .
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -819,7 +819,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.462 
+l.466 
       ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -865,7 +865,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.613 
+l.617 
       ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -880,7 +880,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.636 \chapter
+l.640 \chapter
               {Application}]
 Chapter 5.
 [25
@@ -899,7 +899,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.669 
+l.675 
       ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -910,7 +910,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 683--683
+Underfull \hbox (badness 10000) in paragraph at lines 688--688
 []|\OT1/cmr/bx/n/12 Log-
  []
 
@@ -927,24 +927,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.714 \newpage
+l.718 \newpage
               
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.714 \newpage
+l.718 \newpage
               
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.714 \newpage
+l.718 \newpage
               ]
-Underfull \hbox (badness 10000) in paragraph at lines 740--740
-[]|\OT1/cmr/bx/n/12 Log-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -954,6 +950,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29]
+Underfull \hbox (badness 10000) in paragraph at lines 744--744
+[]|\OT1/cmr/bx/n/12 Log-
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -967,20 +967,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.778 \chapter
-              {Conclusions}
+l.773 \newpage
+              
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.6}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.778 \chapter
-              {Conclusions}
+l.773 \newpage
+              
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.7}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.778 \chapter
-              {Conclusions}]
+l.773 \newpage
+              ]
 Chapter 6.
 [31
 
@@ -1068,7 +1068,7 @@ e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texli
 ve/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/
 texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on thesis.pdf (47 pages, 312717 bytes).
+Output written on thesis.pdf (47 pages, 312867 bytes).
 PDF statistics:
  701 PDF objects out of 1000 (max. 8388607)
  601 compressed objects within 7 object streams
