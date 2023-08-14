@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  14 AUG 2023 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.30)  14 AUG 2023 12:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -514,7 +514,7 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 LaTeX Warning: Unused global option(s):
     [centerh1].
 
-No file arxiv_paper.aux.
+(./arxiv_paper.aux)
 \openout1 = `arxiv_paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
@@ -536,13 +536,14 @@ LaTeX Font Info:    ... okay on input line 53.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
 LaTeX Font Info:    ... okay on input line 53.
 Package hyperref Info: Link coloring ON on input line 53.
+ (./arxiv_paper.out) (./arxiv_paper.out
+pdfTeX warning (Object streams): \pdfobjcompresslevel > 0 requires PDF-1.5 or g
+reater. Object streams disabled now.
+)
 \@outlinefile=\write3
 \openout3 = `arxiv_paper.out'.
 
-
-pdfTeX warning (Object streams): \pdfobjcompresslevel > 0 requires PDF-1.5 or g
-reater. Object streams disabled now.
-(/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count310
 \scratchdimen=\dimen189
@@ -597,174 +598,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--59
 [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `dempster1977' on page 2 undefined on input li
-ne 69.
-
-
-Package natbib Warning: Citation `titterington1985' on page 2 undefined on inpu
-t line 69.
-
-
-Package natbib Warning: Citation `andrews2013' on page 2 undefined on input lin
-e 71.
-
-
-Package natbib Warning: Citation `mcnicholas2020' on page 2 undefined on input 
-line 71.
-
-
-Package natbib Warning: Citation `viroli2011' on page 2 undefined on input line
- 71.
-
-
-Package natbib Warning: Citation `anderlucci2015' on page 2 undefined on input 
-line 71.
-
-
-Package natbib Warning: Citation `dogru2016' on page 2 undefined on input line 
-71.
-
-
-Package natbib Warning: Citation `gallaugher2018' on page 2 undefined on input 
-line 71.
-
-
-Package natbib Warning: Citation `silva2023' on page 2 undefined on input line 
-71.
-
-
-Package natbib Warning: Citation `gupta1999' on page 2 undefined on input line 
-84.
-
 [2]
+Overfull \hbox (2.22766pt too wide) in paragraph at lines 110--111
+\OT1/cmr/m/n/12 ([][]Demp-ster et al.[][], [][]1977[][]). Con-sider a dataset c
+om-pris-ing $\OML/cmm/m/it/12 N$ \OT1/cmr/m/n/12 un-la-belled ma-tri-ces $\OT1/
+cmr/bx/n/12 X[]\OML/cmm/m/it/12 ; \OT1/cmr/bx/n/12 X[]\OML/cmm/m/it/12 ; [] ; \
+OT1/cmr/bx/n/12 X[]$
+ []
 
-Package natbib Warning: Citation `mcnicholas2016b' on page 3 undefined on input
- line 104.
-
-
-Package natbib Warning: Citation `tiedeman1955' on page 3 undefined on input li
-ne 104.
-
-
-Package natbib Warning: Citation `wolfe1965' on page 3 undefined on input line 
-104.
-
-
-Package natbib Warning: Citation `mcnicholas2016b' on page 3 undefined on input
- line 104.
-
-
-Package natbib Warning: Citation `mcnicholas2016a' on page 3 undefined on input
- line 104.
-
-
-Package natbib Warning: Citation `dempster1977' on page 3 undefined on input li
-ne 110.
-
-[3]
-
-Package natbib Warning: Citation `viroli2011' on page 4 undefined on input line
- 155.
-
-
-Package natbib Warning: Citation `aitken1926' on page 4 undefined on input line
- 164.
-
-
-Package natbib Warning: Citation `lindsay1995' on page 4 undefined on input lin
-e 168.
-
-
-Package natbib Warning: Citation `bohning1994' on page 4 undefined on input lin
-e 168.
-
-
-Package natbib Warning: Citation `mcnicholas2010' on page 4 undefined on input 
-line 172.
-
-[4]
-
-Package natbib Warning: Citation `schwarz1978' on page 5 undefined on input lin
-e 182.
-
-
-Package natbib Warning: Citation `leroux1992' on page 5 undefined on input line
- 186.
-
-
-Package natbib Warning: Citation `keribin2000' on page 5 undefined on input lin
-e 186.
-
-
-Package natbib Warning: Citation `dasgupta1998' on page 5 undefined on input li
-ne 186.
-
-
-Package natbib Warning: Citation `hubert1985' on page 5 undefined on input line
- 188.
-
-
-Package natbib Warning: Citation `gallaugher2018' on page 5 undefined on input 
-line 193.
-
-
-Package natbib Warning: Citation `ashlock2010' on page 5 undefined on input lin
-e 201.
-
-[5]
-
-Package natbib Warning: Citation `martinez2000' on page 6 undefined on input li
-ne 207.
-
-
-Package natbib Warning: Citation `pernkopf2005' on page 6 undefined on input li
-ne 207.
-
-
-Package natbib Warning: Citation `andrews2013' on page 6 undefined on input lin
-e 207.
-
-
-Package natbib Warning: Citation `mcnicholas2020' on page 6 undefined on input 
-line 207.
-
-
-Package natbib Warning: Citation `andrews2013' on page 6 undefined on input lin
-e 207.
-
-
-Package natbib Warning: Citation `mcnicholas2020' on page 6 undefined on input 
-line 207.
-
-[6]
-
-LaTeX Warning: Reference `fig:crossover' on page 7 undefined on input line 239.
-
-
-
-LaTeX Warning: Reference `fig:mutation' on page 7 undefined on input line 269.
-
-[7]
-
-Package natbib Warning: Citation `matrixmixtures' on page 8 undefined on input 
-line 307.
-
-
-Package natbib Warning: Citation `flynn2023' on page 8 undefined on input line 
-307.
-
-
-Package natbib Warning: Citation `R' on page 8 undefined on input line 307.
-
-
-Package natbib Warning: Citation `Julia' on page 8 undefined on input line 307.
-
-
+[3] [4] [5] [6] [7]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 314.
 LaTeX Font Info:    Trying to load font information for U+euf on input line 319
 .
+
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
@@ -779,85 +626,19 @@ LaTeX Warning: Text page 9 contains only floats.
 Overfull \vbox (4.5195pt too high) has occurred while \output is active []
 
 
-[9]
-
-LaTeX Warning: Reference `table:sim1' on page 10 undefined on input line 416.
-
-[10]
-
-LaTeX Warning: Reference `table:sim2' on page 11 undefined on input line 491.
-
-
-Package natbib Warning: Citation `landsat' on page 11 undefined on input line 5
-26.
-
-[11]
-
-LaTeX Warning: Reference `table:classes' on page 12 undefined on input line 528
-.
-
-
-LaTeX Warning: Reference `table:landsat_results' on page 12 undefined on input 
-line 548.
-
-
-LaTeX Warning: Reference `table:landsat_EA' on page 12 undefined on input line 
-548.
-
-
-LaTeX Warning: Reference `table:landsat_EM' on page 12 undefined on input line 
-548.
-
-
-Package natbib Warning: Citation `hastie2009' on page 12 undefined on input lin
-e 596.
-
-[12] [13]
-
-LaTeX Warning: Reference `table:digits_results' on page 14 undefined on input l
-ine 600.
-
-
-LaTeX Warning: Reference `table:digits_EA' on page 14 undefined on input line 6
-00.
-
-
-LaTeX Warning: Reference `table:digits_EM' on page 14 undefined on input line 6
-00.
-
-[14] (./arxiv_paper.bbl [15] [16])
-
-Package natbib Warning: There were undefined citations.
-
-[17] (./arxiv_paper.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `arxiv_paper.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `arxiv_paper.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  46AFBAFCF2190315CE9ABDF8865E9393;2787.
+[9] [10] [11] [12] [13] [14] (./arxiv_paper.bbl [15] [16]) [17]
+(./arxiv_paper.aux)
+Package rerunfilecheck Info: File `arxiv_paper.out' has not changed.
+(rerunfilecheck)             Checksum: 46AFBAFCF2190315CE9ABDF8865E9393;2787.
  ) 
 Here is how much of TeX's memory you used:
- 13680 strings out of 476025
- 219630 string characters out of 5790017
+ 13706 strings out of 476025
+ 220002 string characters out of 5790017
  1874388 words of memory out of 5000000
- 33811 multiletter control sequences out of 15000+600000
+ 33831 multiletter control sequences out of 15000+600000
  533278 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,14n,77p,1405b,659s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,77p,1401b,659s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -879,9 +660,9 @@ e/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/20
 23/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
 e/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on arxiv_paper.pdf (17 pages, 312709 bytes).
+Output written on arxiv_paper.pdf (17 pages, 338184 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
+ 419 PDF objects out of 1000 (max. 8388607)
  83 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
