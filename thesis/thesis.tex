@@ -65,7 +65,6 @@
 %-------------------------%
 \chapter{Introduction}
 %-------------------------%
-
 Model-based clustering is the use of finite mixture models to identify underlying group structures in data. A recent review of model-based clustering can be found in \citet{mcnicholas2016b}, while extensive details are available in \citet{mcnicholas2016a}. Estimating parameters for mixture models is notoriously difficult, with the expectation-maximization (EM) algorithm being the predominant method \citep{dempster1977}. Although the EM algorithm is a powerful technique, it is susceptible to becoming trapped at local maxima, which translates to suboptimal clustering results \citep{titterington1985}. An alternative approach is the evolutionary algorithm (EA) which iteratively emulates natural selection on a population of candidate solutions. By leveraging a fitness function and genetic operators like crossover and mutation, EAs offer a distinct way to search the likelihood surface, helping to bypass the limitations of the EM algorithm. 
 
 While EAs have been successful for multivariate model-based clustering \citep{andrews2013,mcnicholas2020}, there remains a paucity of research in the matrix-variate setting. Matrix-variate or three-way data consists of random matrices organized in three dimensions. This structure commonly arises in multivariate longitudinal data, with multiple measurements taken at different time points, and greyscale image data. Model-based clustering has demonstrated its effectiveness in clustering three-way data by leveraging mixtures of matrix-variate distributions \citep{viroli2011, anderlucci2015, dogru2016, gallaugher2018, silva2023}.
@@ -150,7 +149,7 @@ where $\bm{\vartheta} = (\pi_1, \dots, \pi_g, {\bf M}_1, {\bf \Sigma}_1, {\bf \P
 %-----------------------------------------%
 Estimation of the mixture model parameters is typically performed using the EM algorithm \citep{dempster1977}. In general, the EM algorithm is an iterative procedure for finding maximum likelihood estimates under incomplete data. Consider a dataset comprising $N$ unlabelled matrices ${\bf X}_1, {\bf X}_2, \dots, {\bf X}_N$ of size $n \times p$. Then the observed-data likelihood for a finite matrix-variate normal mixture is given by
 \begin{equation*}
-\mathbfcal{L}(\bm{\vartheta}) = \prod_{i=1}^N \sum_{g=1}^G\pi_g \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g).
+\mathcal{L}(\bm{\vartheta}) = \prod_{i=1}^N \sum_{g=1}^G\pi_g \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g).
 \end{equation*} 
 Taking the natural logarithm gives us the observed-data log-likelihood
 \begin{equation*}
@@ -183,7 +182,7 @@ for $i= 1, \dots, N; g = 1, \dots, G$. Under this terminology, the goal of model
 \end{equation*}
 Using the data and membership labels, we obtain the complete-data likelihood and complete-data log-likelihood as follows
 \begin{align*}
-\mathbfcal{L}_c(\bm{\vartheta}) &= \prod_{i=1}^N \prod_{g=1}^G \left[ \pi_g \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g) \right] ^{z_{ig}}, \\
+\mathcal{L}_c(\bm{\vartheta}) &= \prod_{i=1}^N \prod_{g=1}^G \left[ \pi_g \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g) \right] ^{z_{ig}}, \\
 l_c(\bm{\vartheta}) &= \sum_{i=1}^N \sum_{g=1}^G z_{ig} \left[ \log \pi_g + \log \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g) \right].
 \end{align*}
 For each iteration of the EM algorithm, the E-step replaces the $z_{ig}$ indicators with their conditional expected values given the data and the current parameter estimates
@@ -215,7 +214,7 @@ for $g = 1, \dots, G$. The E and M steps iterate until some convergence criterio
 %-----------------------------------------%
 \subsection{Convergence Criterion}
 %-----------------------------------------%
-To determine convergence of the EM algorithm, we use a criterion based on the Aitken acceleration \citep{aitken1926}. The Aitken acceleration at iteration $t$ is defined by 
+To determine convergence of the EM algorithm, we use a criterion based on the Aitken acceleration \citep{aitken1926} defined by 
 \begin{equation*}
 a^{(t)} = \frac{l^{(t+1)} - l^{(t)} }{l^{(t)} - l^{(t-1)}},
 \end{equation*}
@@ -225,7 +224,7 @@ l_{\infty}^{(t+1)} = l^{(t)} + \frac{1}{1- a^{(t)}} (l^{(t+1)} - l^{(t)}).
 \end{equation*}
 In accordance with \citet{mcnicholas2010}, the EM algorithm terminates when 
 \begin{equation*}
-0< l_{\infty}^{(k+1)} - l^{(k)} < \varepsilon,
+0< l_{\infty}^{(t+1)} - l^{(t)} < \varepsilon,
 \end{equation*}
 for some pre-specified tolerance $\varepsilon > 0$.
 
@@ -247,7 +246,7 @@ where $l(\hat{\bm{\vartheta}})$ is the maximized log-likelihood, $N$ is the numb
 %----------------------------------------%
 \subsection{Model Performance}
 %----------------------------------------%
-In the subsequent clustering, labeled datasets are treated as if they were unlabelled. Accordingly, we can assess model performance by comparing MAP classifications to the ground truth. The Rand Index (RI) \citep{rand1971} serves as a metric for quantifying the agreement between two sets of class assignments and is defined by
+In the subsequent clustering, labeled datasets are treated as if they were unlabelled. Accordingly, we can assess model performance by comparing MAP classifications to the ground truth. The Rand index \citep[RI;][]{rand1971} serves as a metric for quantifying the agreement between two sets of class assignments and is defined by
 \begin{equation*}
 \text{RI} = \frac{\text{number of pairwise agreements}}{\text{total number of pairs}}.
 \end{equation*} 
@@ -352,7 +351,7 @@ for $g = 1, \dots, G$. Then we calculate the observed log-likelihood at the curr
 %--------------------------------%
 The EA starts by initializing the first generation with a population of $K$ parent solutions, denoted as $\tilde{\bf \mathbfcal{Z}}_1, \dots, \tilde{\bf \mathbfcal{Z}}_K$. In general, the parent solutions are randomly generated matrices representing random hard clusterings of the data. Alternatively, one can provide initial solutions, such as a hardened $k$-means or other handpicked solutions, to inform the evolutionary process.  
 
-Reproduction in the EA involves cloning the parents $J$ times and performing crossover on each clone. The crossover operation randomly swaps two distinct rows of the parent solution to create clones with identical membership labels except for two observations. For example, suppose we randomly select labels $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent in Figure 3.1. Since the rows are distinct, we swap them to create a clone $\tilde{ \bf \mathbfcal{Z} }_{k_j}$ with the same genetic material except for those two labels.  
+Reproduction in the EA involves cloning the parents $J$ times and performing crossover on each clone. The crossover operation randomly swaps two distinct rows of the parent solution to create clones with identical membership labels except for two observations. For example, suppose we randomly select labels $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent in Figure \ref{fig:crossover}. Since the rows are distinct, we swap them to create a clone $\tilde{ \bf \mathbfcal{Z} }_{k_j}$ with the same genetic material except for those two labels.  
 \begin{figure}[H]
 \setstretch{2}
 $$\tilde{\bf {\mathbfcal{Z}}}_{k} = 
@@ -378,11 +377,12 @@ $$\tilde{\bf {\mathbfcal{Z}}}_{k} =
 \vspace{-0.5cm}
 \setstretch{1}
 \caption{Illustration of the crossover operator, randomly swapping distinct rows $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent solution to create a child with similar genetic material.}
+\label{fig:crossover}
 \end{figure}
 
 If the labels are identical, we continue randomly selecting rows until two distinct labels are found. After crossover, the population size grows to $K + KJ$, including the original parents and their offspring. The population is then organized into a list of descending fitness, from which we select the top $K$ solutions to become the next generation of parents. This crossover step helps avoid stopping at local maxima of the fitness surface, i.e., the observed log-likelihood. 
 
-Because swapping alone does not guarantee better clustering results, we now introduce a greedy mutation step. For each of the surviving $K$ individuals, we randomly swap distinct elements in a random row until their fitness improves. Suppose we randomly select label $\tilde{\bf z}_2$ from the parent in Figure 3.2. Continuing, we may randomly select distinct elements $\tilde{z}_{22}, \tilde{z}_{2G} \in \tilde{\bf z}_2$ and swap. 
+Because swapping alone does not guarantee better clustering results, we now introduce a greedy mutation step. For each of the surviving $K$ individuals, we randomly swap distinct elements in a random row until their fitness improves. Suppose we randomly select label $\tilde{\bf z}_2$ from the parent in Figure \ref{fig:mutation}. Continuing, we may randomly select distinct elements $\tilde{z}_{22}, \tilde{z}_{2G} \in \tilde{\bf z}_2$ and swap. 
 \vspace{0.5cm}
 \begin{figure}[H]
 \setstretch{2}
@@ -410,6 +410,7 @@ $$\tilde{ {\bf \mathbfcal{Z}} }_{k}  =
 \vspace{-0.5cm}
 \setstretch{1}
 \caption{Illustration of the mutation operator, swapping distinct elements $\tilde{z}_{22}$ and $\tilde{z}_{2G}$ in a random row of a surviving parent for a slightly modified solution.}
+\label{fig:mutation}
 \end{figure}
 
 If the mutation increases fitness, the swap is kept; otherwise, the swap is reversed. This process continues until either a profitable mutation is found or all rows have been exhausted leaving the parent unchanged. If a generation remains unchanged after applying both crossover and mutation, it is considered a stagnation. After a predetermined number of stagnations, the algorithm terminates, resulting in a population of $K$ fit solution matrices.
@@ -535,10 +536,11 @@ and the scale parameters are given by
 \end{bmatrix}.
 \end{align*}
 
-The optimal number of components for the EM algorithm was $G=2$ and the optimal EA consisted of $G=2$, $K=1$, and $J=12$. Table 4.1 presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results indicate that both the EM and EA exhibited nearly identical performance. While the EA found slightly superior maxima, as evidenced by the average likelihood ratio, the EM achieved slightly better ARI scores. We acknowledge that the EA is generally slower than the EM due to its more computationally intensive nature; however, the runtimes appear comparable in this case since the number of parents is quite low.
+The optimal number of components for the EM algorithm was $G=2$ and the optimal EA consisted of $G=2$, $K=1$, and $J=12$. Table \ref{table:sim1} presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results indicate that both the EM and EA exhibited nearly identical performance. While the EA found slightly superior maxima, as evidenced by the average likelihood ratio, the EM achieved slightly better ARI scores. We acknowledge that the EA is generally slower than the EM due to its more computationally intensive nature; however, the runtimes appear comparable in this case since the number of parents is quite low.
 
 \begin{table}[!htbp]
   \caption{Mean and standard deviation of ARI, runtime, and likelihood ratio for EA and EM associated with Simulation 1.}
+  \label{table:sim1}
 \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -611,10 +613,11 @@ and the scale parameters configured to
  0.5 & 0.5  & 1 
 \end{bmatrix}.
 \end{align*}
-The number of components selected for the EM algorithm was $G=3$, while the optimal EA was identified with $G=3$, $K=3$, and $J=12$. Table 4.2 presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results are similar to the previous simulation, with the EA exhibiting marginally superior performance in terms of likelihood, while the EM slightly outperformed in ARI scores. Notably, the larger number of parents resulted in significantly longer runtimes due to the greedy nature of the mutation step.
+The number of components selected for the EM algorithm was $G=3$, while the optimal EA was identified with $G=3$, $K=3$, and $J=12$. Table \ref{table:sim2} presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results are similar to the previous simulation, with the EA exhibiting marginally superior performance in terms of likelihood, while the EM slightly outperformed in ARI scores. Notably, the larger number of parents resulted in significantly longer runtimes due to the greedy nature of the mutation step.
 
 \begin{table}[!ht]
   \caption{Mean and standard deviation of ARI, runtime, and likelihood ratio for EA and EM associated with Simulation 2.}
+    \label{table:sim2}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -647,10 +650,11 @@ The following sections detail an investigation of two real-world datasets. First
 %-------------------------------------------%
 This dataset is a collection of digital images captured by the Landsat program, which is a series of Earth-observing satellites managed by NASA and the United States Geological Survey (USGS). The original data was purchased from NASA by the Australian Centre for Remote Sensing and subsequently donated to the UCI machine learning repository in a preprocessed form \citep{landsat}. The preprocessing includes converting the original binary values to ASCII, labelling the data based on site visits, removing data to prevent image reconstruction, and partitioning the data into training and testing sets. 
 
-Four digital images of size $3 \times 3$ were taken of the same region in different spectral bands, corresponding to random matrices of size $4\times 9$. Two of the bands were in the visible spectrum, while the other two were in the infrared spectrum. The pixel intensities range from 0 to 255. The researchers identified seven classes of images based on the central pixels which are described in Table 5.1. Notably, class 6 was removed by the researchers due to doubts of the validity of the class.
+Four digital images of size $3 \times 3$ were taken of the same region in different spectral bands, corresponding to random matrices of size $4\times 9$. Two of the bands were in the visible spectrum, while the other two were in the infrared spectrum. The pixel intensities range from 0 to 255. The researchers identified seven classes of images based on the central pixels which are described in Table \ref{table:classes}. Notably, class 6 was removed by the researchers due to doubts of the validity of the class.
 \setcounter{table}{0}
 \begin{table}[!htbp]
   \caption{Description of the Landsat test set classes and observation count.}
+    \label{table:classes}
   \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{cXc}
     \toprule
@@ -669,12 +673,13 @@ Four digital images of size $3 \times 3$ were taken of the same region in differ
 
 Originally, this dataset was used for multivariate clustering by considering only a vector of the 4 central pixels, which is what the labels are based on. However, this approach neglects a significant amount of information along the borders which can be leveraged by matrix-variate distributions. Although we possess more information, the regions along the boundaries between classes are less distinct and pose a greater challenge to separate.
  
-For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of size $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA resulted in $G=4$ components. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. In fact, it is possible that these bordering regions should have been assigned to class 6, which was later removed. The optimal EA also comprised $K=2$ parents and $J=8$ clones. Table 5.2 showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Additionally, Tables 5.3 and 5.4 present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. Moreover, an EA to EM likelihood ratio of approximately 1.55 indicates a substantial improvement in likelihood. This increase in EA likelihood translated to a slight increase in ARI over the EM. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
+For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of size $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA resulted in $G=4$ components. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. In fact, it is possible that these bordering regions should have been assigned to class 6, which was later removed. The optimal EA also comprised $K=2$ parents and $J=8$ clones. Table \ref{table:landsat_results} showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Additionally, Tables \ref{table:landsat_EA} and \ref{table:landsat_EM} present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. Moreover, an EA to EM likelihood ratio of approximately 1.55 indicates a substantial improvement in likelihood. This increase in EA likelihood translated to a slight increase in ARI over the EM. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
 
 
 \newpage
 \begin{table}[!htbp]
   \caption{Converged log-likelihood, ARI, runtime, and EA to EM likelihood ratio associated with the Landsat dataset.}
+      \label{table:landsat_results}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -688,6 +693,7 @@ For our analysis, we focused on the first three classes from the test set: red s
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EA MAP classifications associated with the Landsat dataset.}
+      \label{table:landsat_EA}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -702,6 +708,7 @@ For our analysis, we focused on the first three classes from the test set: red s
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EM MAP classifications associated with the Landsat dataset.}
+      \label{table:landsat_EM}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -723,7 +730,7 @@ The final dataset comprises greyscale images of handwritten digits, which were o
 
 Since the writing is mostly concentrated in the center, the outer rows and columns primarily contain white space, resulting in a value of -1. Consequently, the lack of variation along the borders leads to singular updates in the scale matrices ${\bf \Sigma}_g$ and ${\bf \Psi}_g$. To address this sparsity, we introduced small random noise to the images. However, to preserve the signal integrity, a constant is applied to all entries greater than -1 before adding the noise.
 
-Our analysis focused on clustering digits 1 and 7 from the dataset. There were a total of $N=411$ observations from the test set, with 264 belonging to digit 1 and 147 to digit 7, corresponding to true proportions of approximately $\bm{\pi} = (0.64, 0.36)$. The optimal number of components for the EM algorithm was $G=2$, while the optimal EA consisted of $G=2, K=2,$ and $J=4$. In Table 5.5, we present the log-likelihood, ARI, runtime, and EA to EM likelihood ratio. Additionally, Tables 5.6 and 5.7 display the cross-tabulation of EA and EM results, respectively.
+Our analysis focused on clustering digits 1 and 7 from the dataset. There were a total of $N=411$ observations from the test set, with 264 belonging to digit 1 and 147 to digit 7, corresponding to true proportions of approximately $\bm{\pi} = (0.64, 0.36)$. The optimal number of components for the EM algorithm was $G=2$, while the optimal EA consisted of $G=2, K=2,$ and $J=4$. In Table \ref{table:digits_results}, we present the log-likelihood, ARI, runtime, and EA to EM likelihood ratio. Additionally, Tables \ref{table:digits_EA} and \ref{table:digits_EM} display the cross-tabulation of EA and EM results, respectively.
 
 Remarkably, both algorithms showed identical clustering results in terms of likelihood and ARI. The cross-tabulations for EA and EM were also identical. However, we note that the EA required significantly more runtime to achieve the same results as the EM algorithm.
 
@@ -731,6 +738,7 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 \newpage
 \begin{table}[!htbp]
   \caption{Converged log-likelihood, ARI, runtime, and EA to EM likelihood ratio associated with the handwritten digits dataset.}
+        \label{table:digits_results}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{3}{X}c}
   \toprule
@@ -745,6 +753,7 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 
 \begin{table}[!htbp]
   \caption{Cross-tabulation of the EA MAP classifications associated with the handwritten digits dataset.}
+        \label{table:digits_EA}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
@@ -758,6 +767,7 @@ Remarkably, both algorithms showed identical clustering results in terms of like
 
 \begin{table}[!ht]
   \caption{Cross-tabulation of the EM MAP classifications associated with the handwritten digits dataset.}
+          \label{table:digits_EM}
     \vspace{0.5cm}
   \begin{tabularx}{\textwidth}{l *{4}{X}}
   \toprule
