@@ -47,7 +47,7 @@ Dasgupta, A. and Raftery, A.~E. (1998).
 
 \bibitem[Dempster {\em et~al.}(1977)]{dempster1977}
 Dempster, A.~P., Laird, N.~M., and Rubin, D.~B. (1977).
-\newblock Maximum likelihood from incomplete data via the em-algorithm.
+\newblock Maximum likelihood from incomplete data via the {{EM}}-algorithm.
 \newblock {\em Journal of the Royal Statistical Society B}, {\bf 39}, 1--38.
 
 \bibitem[Do\v{g}ru {\em et~al.}(2016)]{dogru2016}
@@ -101,7 +101,8 @@ Lindsay, B. (1995).
 
 \bibitem[Martínez and Vitrià(2000)]{martinez2000}
 Martínez, A.~M. and Vitrià, J. (2000).
-\newblock Learning mixture models using a genetic version of the em algorithm.
+\newblock Learning mixture models using a genetic version of the {{EM}}
+  algorithm.
 \newblock {\em Pattern Recognition Letters}, {\bf 21}(8), 759--769.
 
 \bibitem[McNicholas(2016a)]{mcnicholas2016a}
@@ -117,7 +118,7 @@ McNicholas, P.~D. (2016b).
 \bibitem[McNicholas {\em et~al.}(2010)]{mcnicholas2010}
 McNicholas, P.~D., Murphy, T.~B., McDaid, A.~F., and Frost, D. (2010).
 \newblock Serial and parallel implementations of model-based clustering via
-  parsimonious gaussian mixture models.
+  parsimonious {{G}}aussian mixture models.
 \newblock {\em Computational Statistics \& Data Analysis}, {\bf 54}(3),
   711--723.
 
@@ -129,7 +130,8 @@ McNicholas, S.~M., McNicholas, P.~D., and Ashlock, D.~A. (2020).
 
 \bibitem[Pernkopf and Bouchaffra(2005)]{pernkopf2005}
 Pernkopf, F. and Bouchaffra, D. (2005).
-\newblock Genetic-based em algorithm for learning gaussian mixture models.
+\newblock Genetic-based {{EM}} algorithm for learning {{G}}aussian mixture
+  models.
 \newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
   {\bf 27}(8), 1344--1348.
 

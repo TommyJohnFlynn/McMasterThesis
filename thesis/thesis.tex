@@ -52,7 +52,7 @@
 \newpage
 \pagenumbering{arabic}
 \pagestyle{fancy}
-\fancyhead[L]{M.Sc. Thesis - Tommy Flynn}
+\fancyhead[L]{M.Sc. Thesis - Thomas J. Flynn}
 \fancyhead[R]{McMaster - Mathematics and Statistics}
 
 
@@ -65,9 +65,9 @@
 %-------------------------%
 \chapter{Introduction}
 %-------------------------%
-Model-based clustering is the use of finite mixture models to identify underlying group structures in data. A recent review of model-based clustering can be found in \citet{mcnicholas2016b}, while extensive details are available in \citet{mcnicholas2016a}. Estimating parameters for mixture models is notoriously difficult, with the expectation-maximization (EM) algorithm being the predominant method \citep{dempster1977}. Although the EM algorithm is a powerful technique, it is susceptible to becoming trapped at local maxima, which translates to suboptimal clustering results \citep{titterington1985}. An alternative approach is the evolutionary algorithm (EA) which iteratively emulates natural selection on a population of candidate solutions. By leveraging a fitness function and genetic operators like crossover and mutation, EAs offer a distinct way to search the likelihood surface, helping to bypass the limitations of the EM algorithm. 
+Model-based clustering is the use of finite mixture models to identify underlying group structures in data. A recent review of model-based clustering can be found in \citet{mcnicholas2016b}, while extensive details are available in \citet{mcnicholas2016a}. Estimating parameters for mixture models is notoriously difficult, with the expectation-maximization (EM) algorithm being the predominant method \citep{dempster1977}. Although the EM algorithm is a powerful technique, it is susceptible to becoming trapped at local maxima, which translates to suboptimal clustering results \citep{titterington1985}. An alternative approach is the evolutionary algorithm (EA) which emulates natural selection on a population of candidate solutions. By leveraging a fitness function and genetic operators like crossover and mutation, EAs offer a distinct way to search the likelihood surface, helping to bypass the limitations of the EM algorithm. 
 
-While EAs have been successful for multivariate model-based clustering \citep{andrews2013,mcnicholas2020}, there remains a paucity of research in the matrix-variate setting. Matrix-variate or three-way data consists of random matrices organized in three dimensions. This structure commonly arises in multivariate longitudinal data, with multiple measurements taken at different time points, and greyscale image data. Model-based clustering has demonstrated its effectiveness in clustering three-way data by leveraging mixtures of matrix-variate distributions \citep{viroli2011, anderlucci2015, dogru2016, gallaugher2018, silva2023}.
+While EAs have been successful for multivariate model-based clustering \citep{andrews2013,mcnicholas2020}, there remains a paucity of research in the matrix-variate setting. Matrix-variate or three-way data consists of matrices organized in three dimensions. This structure commonly arises in multivariate longitudinal data, with multiple measurements taken at different time points, and greyscale image data. Model-based clustering has demonstrated its effectiveness in clustering three-way data by leveraging mixtures of matrix-variate distributions \citep{viroli2011, anderlucci2015, dogru2016, gallaugher2018, silva2023}.
 
 In response to the growing interest in matrix-variate data applications, this work develops an EA for matrix-variate model-based clustering. The algorithm incorporates both crossover and mutation operations and is applied in the matrix-variate normal setting. We find that its performance is competitive against the EM algorithm for clustering three-way data in both simulated and real-world datasets.   
 
@@ -89,7 +89,7 @@ The following sections provide essential context for this research, covering mat
 %---------------------------------------------%
 \section{Matrix-Variate Distributions}
 %---------------------------------------------%
-Three-way data refers to datasets that consist of random matrices organized in three dimensions. These datasets are characterized by having $n$ units (rows), $p$ variables (columns), and $N$ occasions (layers). Matrix-variate distributions provide an effective way to model three-way data, the most mathematically tractable being the matrix-variate normal distribution \citep{gupta1999}. An $n \times p$ random matrix $\mathscr{X}$ follows an $n \times p$ matrix-variate normal distribution, denoted $\mathcal{N}_{n\times p}({\bf M, \Sigma, \Psi})$, if its density can be written as
+Three-way data refers to datasets that consist of matrices organized in three dimensions. These datasets are characterized by having $n$ units (rows), $p$ variables (columns), and $N$ occasions (layers). Matrix-variate distributions provide an effective way to model three-way data, the most mathematically tractable being the matrix-variate normal distribution \citep{gupta1999}. An $n \times p$ random matrix $\mathscr{X}$ follows an $n \times p$ matrix-variate normal distribution, denoted $\mathcal{N}_{n\times p}({\bf M, \Sigma, \Psi})$, if its density can be written as
 \begin{equation*}
 \phi_{n\times p}({\bf X |  M, \Sigma, \Psi}) =  \frac{1}{(2\pi)^{\frac{np}{2}}|{\bf \Sigma}|^{\frac{p}{2}}|{\bf \Psi}|^{\frac{n}{2}}} \exp\left\{ -\frac{1}{2}\text{tr}\left({\bf \Sigma}^{-1}({\bf X} - {\bf M}) {\bf \Psi}^{-1}({\bf X} - {\bf M}) '\right)\right\},
 \end{equation*}
@@ -105,7 +105,7 @@ where $\mathcal{N}_{np}(\cdot)$ is the $np$ multivariate normal distribution, $\
 %---------------------------------------------------------------------------------------%
 \section{Supervised, Unsupervised, and Semi-Supervised Learning}
 %---------------------------------------------------------------------------------------%
-Machine learning algorithms can be broadly categorized into three varieties: supervised, unsupervised, and semi-supervised. The level of supervision indicates the presence and utilization of labeled data. In regression, labeled data corresponds to the true values of the response variable associated with each input, while in classification, labels indicate group membership. Unsupervised learning is the most general case, where no observations are a priori labeled or are treated as such. In contrast, the other varieties involve some labeled data, which is then used to infer labels for the unlabeled observations. In supervised learning, only the labeled data is used to infer labels for the unlabeled data. Mediating the previous two varieties is semi-supervised learning, which leverages all available data to infer labels for the unlabeled data. 
+Machine learning algorithms can be broadly categorized into three varieties: supervised, unsupervised, and semi-supervised. The level of supervision indicates the presence and utilization of labeled data. In regression, labeled data corresponds to the observed values of the response variable associated with each input, while in classification, labels indicate group membership. Unsupervised learning is the most general case, where no observations are a priori labeled. In contrast, the other varieties involve some labeled data, which is then used to infer labels for the unlabeled observations. In supervised learning, only the labeled data is used to infer labels for the unlabeled data. Semi-supervised learning leverages all available data to infer labels for the unlabeled data. 
 
 
 
@@ -121,7 +121,7 @@ Machine learning algorithms can be broadly categorized into three varieties: sup
 Classification is a paradigm in which group membership labels are assigned to unlabelled data. Unsupervised classification, or clustering, assumes that all observations are unlabelled or are treated as such. The groups to which observations are assigned are referred to as classes or clusters. Defining a cluster formally is surprisingly nontrivial. Intuitively, we want observations within a cluster to exhibit shared characteristics, making them more similar to each other than observations in other clusters. 
 However, this definition is flawed because it elicits a solution where each observation is assigned to its own cluster \citet{mcnicholas2016a}. 
 
-A more suitable definition can be constructed using finite mixture models. \citet{mcnicholas2016b} explains that the framing of a cluster in terms of a component of a mixture model can be traced back to \citet{tiedeman1955}. Consider a population of $G$ groups where the observations in each group are generated by a Gaussian density function. By censoring the group membership of each observation, we are left with a mixture of unknown densities. The reconstruction of the original $G$ densities is what is known as clustering \citep{tiedeman1955}. Subsequently, \citet{wolfe1963} considered a cluster to be a component of a mixture model and played a pivotal role in pioneering multivariate Gaussian model-based clustering \citep{wolfe1965}. \citet{wolfe1963} also explored two additional definitions of a cluster. The first definition characterizes a cluster as a mode in a distribution, while the second is based on the similarity between observations. \citet{mcnicholas2016a} synthesizes the historical development of a cluster and offers a refined definition as follows:
+A more suitable definition can be constructed using finite mixture models. \citet{mcnicholas2016b} explains that the framing of a cluster in terms of a component of a mixture model can be traced back to \citet{tiedeman1955}. Consider a population of $G$ groups where the observations in each group are generated by a Gaussian density function. By censoring the group membership of each observation, we are left with a mixture of unknown densities. The reconstruction of the original $G$ densities is known as clustering \citep{tiedeman1955}. Subsequently, \citet{wolfe1963} considered a cluster to be a component of a mixture model and pioneered multivariate Gaussian model-based clustering \citep{wolfe1965}. \citet{wolfe1963} also explored two additional definitions of a cluster. The first definition characterizes a cluster as a mode in a distribution, while the second is based on the similarity between observations. \citet{mcnicholas2016a} synthesizes the historical development of a cluster and offers a refined definition as follows:
 \begin{quote} 
 A cluster is a unimodal component within an appropriate finite mixture model.
 \end{quote}
@@ -137,7 +137,7 @@ The main objective of model-based clustering is maximize the likelihood of a $G$
 \begin{equation*}
 f({\bf X} | \bm{\vartheta}) = \sum_{g=1}^G \pi_g f_g({\bf X} | \bm{\theta}_g),
 \end{equation*}
-where $f_g(\cdot)$ is the gth component density, $\pi_g >0$ is the gth mixing proportion with $\sum_{g=1}^G\pi_g = 1$, and $\bm{\vartheta} = (\bm{\pi}, \bm{\theta}_1, \bm{\theta}_2, \dots, \bm{\theta}_G)$ is the vector of parameters with $\bm{\pi} = (\pi_1, \pi_2, \dots, \pi_G)$. In most applications, the component density functions are taken to be identical, indicated as $$f_g({\bf X} | \bm{\theta}_g) = f({\bf X} | \bm{\theta}_g),$$ for all $g$. Building on the ideas in \citet{wolfe1965}, \citet{viroli2011} introduces the use of finite mixtures of matrix-variate normals for clustering three-way data. In the subsequent sections, we denote the density of a mixture of matrix-variate variate normals as
+where $f_g(\cdot)$ is the gth component density, $\pi_g >0$ is the gth mixing proportion with $\sum_{g=1}^G\pi_g = 1$, and $\bm{\vartheta} = (\bm{\pi}, \bm{\theta}_1, \bm{\theta}_2, \dots, \bm{\theta}_G)$ is the vector of parameters with $\bm{\pi} = (\pi_1, \pi_2, \dots, \pi_G)$. In most applications, the component density functions are taken to be identical conditioned on $\bm{\theta}_g$, indicated as $$f_g({\bf X} | \bm{\theta}_g) = f({\bf X} | \bm{\theta}_g),$$ for all $g$. Building on the ideas in \citet{wolfe1965}, \citet{viroli2011} introduces the use of finite mixtures of matrix-variate normals for clustering three-way data. In the subsequent sections, we denote the density of a mixture of matrix-variate normals as
 \begin{equation*}f({\bf X} | \bm{\vartheta}) = \sum_{g=1}^G \pi_g \phi({\bf X} | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g),\end{equation*}
 where $\bm{\vartheta} = (\pi_1, \dots, \pi_g, {\bf M}_1, {\bf \Sigma}_1, {\bf \Psi}_1, \dots, {\bf M}_G, {\bf \Sigma}_G, {\bf \Psi}_G)$.
 
@@ -147,7 +147,7 @@ where $\bm{\vartheta} = (\pi_1, \dots, \pi_g, {\bf M}_1, {\bf \Sigma}_1, {\bf \P
 %-----------------------------------------%
 \subsection{Parameter Estimation}
 %-----------------------------------------%
-Estimation of the mixture model parameters is typically performed using the EM algorithm \citep{dempster1977}. In general, the EM algorithm is an iterative procedure for finding maximum likelihood estimates under incomplete data. Consider a dataset comprising $N$ unlabelled matrices ${\bf X}_1, {\bf X}_2, \dots, {\bf X}_N$ of size $n \times p$. Then the observed-data likelihood for a finite matrix-variate normal mixture is given by
+Estimation of the mixture model parameters is typically performed using the expectation-maximization (EM) algorithm \citep{dempster1977}. The EM algorithm is an iterative procedure for finding maximum likelihood estimates under incomplete data. Consider a dataset comprising $N$ unlabelled matrices ${\bf X}_1, {\bf X}_2, \dots, {\bf X}_N$ of size $n \times p$. Then the observed-data likelihood for a finite matrix-variate normal mixture is given by
 \begin{equation*}
 \mathcal{L}(\bm{\vartheta}) = \prod_{i=1}^N \sum_{g=1}^G\pi_g \phi({\bf X}_i | {\bf M}_g, {\bf \Sigma}_g, {\bf \Psi}_g).
 \end{equation*} 
@@ -189,11 +189,11 @@ For each iteration of the EM algorithm, the E-step replaces the $z_{ig}$ indicat
 \begin{equation*}
 \hat{z}_{ig} = \mathbb{E}[z_{ig} | {\bf X}_i, \hat{\bm{\vartheta}}] = \mathbb{P}[z_{ig} = 1 | {\bf X}_i, \hat{\bm{\vartheta}}] = \frac{\hat{\pi}_g \phi(\hat{\bf {X}}_i |\hat{\bf {M}}_g, \hat{\bf {\Sigma}}_g, \hat{\bf{\Psi}}_g)}{\sum_{h=1}^G \hat{\pi}_h \phi(\hat{\bf {X}}_i |\hat{\bf {M}}_h, \hat{\bf {\Sigma}}_h, \hat{\bf{\Psi}}_h)}.
 \end{equation*}
-The predictions can be reported as either soft or hard classifications. In soft classification, the values of $\hat{z}_{ig}$ remain as probabilities in $[0, 1]$, as computed during the E-step. Alternatively, hard classification reports the maximum a posteriori (MAP) classification i.e, $\text{MAP}\{ \hat{z}_{ig}\}$, where 
+The predictions can be reported as either soft or hard classifications. In soft classification, the values of $\hat{z}_{ig}$ remain as probabilities in $(0, 1)$, as computed during the E-step. Alternatively, hard classification reports the maximum a posteriori (MAP) classification i.e, $\text{MAP}\{ \hat{z}_{ig}\}$, where 
 \begin{equation*}
 \text{MAP}\{ \hat{z}_{ig}\} = 
 \begin{cases}
-    1 & \text{if $g = \text{argmax}_h \{ \hat{z}_{ig}\}$}, \\
+    1 & \text{if $g = \text{argmax}_h \{ \hat{z}_{ih}\}$}, \\
     0 & \text{otherwise}.
 \end{cases}
 \end{equation*}
@@ -262,7 +262,7 @@ Consequently, the ARI has an expected value of 0 under random assignment and ach
 %--------------------------------------------------%
 \subsection{Benefits Over Vectorization}
 %--------------------------------------------------%
-A common approach to tackling complex problems is to transform them into a domain that is better understood. When dealing with matrix-variate clustering, it is tempted to revert to the multivariate setting through vectorization, permitting the use of well-established techniques. However, matrix-variate analysis often offers a substantial reduction in the number of free scale parameters. \citet{gallaugher2018} demonstrates a free scale parameter reduction from $(n^2p^2 + np)/2$ to $(n^2 + p^2 + n + p)/2$, which simplifies and speeds up the procedure for almost all values of $n$ and $p$. Therefore, it is much more profitable to remain in the matrix-variate setting when dealing with three-way data. 
+A common approach to tackling complex problems is to transform them into a domain that is better understood. When dealing with matrix-variate clustering, it is tempting to revert to the multivariate setting through vectorization, permitting the use of well-established techniques. However, matrix-variate analysis often offers a substantial reduction in the number of free scale parameters. \citet{gallaugher2018} demonstrates a free scale parameter reduction from $(n^2p^2 + np)/2$ to $(n^2 + p^2 + n + p)/2$, which simplifies and speeds up the procedure for almost all values of $n$ and $p$. Therefore, it is profitable to remain in the matrix-variate setting when dealing with three-way data. 
 
 
 
@@ -286,17 +286,15 @@ Evolutionary computation (EC) is a paradigm inspired by the principles of biolog
 %-------------------------------------------%
 An evolutionary algorithm (EA) is a particular form of EC that exploits the concepts of reproduction and natural selection. The goal is to maximize a fitness function by evolving a population of candidate solutions. In contrast to other optimization techniques that yield only a single solution, EAs offer the advantage of obtaining a population of optimal solutions. 
 
-To begin, the first generation of candidate solutions is initialized. For each generation, genetic operators such as crossover and mutation are applied to the population members giving rise to new individuals. Only the fittest individuals among the population survive ensuring the propagation of advantageous traits. This process continues until the population stagnates to a collection of maximally fit solutions.  In terms of natural selection, the traits of the final population have been selected due to their reproductive success. Note that the fitness of a particular solution is determined entirely by the fitness function under consideration. Consequently, a problem may elicit a variety of possible fitness functions leading to different optimal populations. 
-
-
+To begin, the first generation of candidate solutions is initialized. For each generation, genetic operators such as crossover and mutation are applied to the population members giving rise to new individuals. Only the fittest individuals among the population survive, ensuring the propagation of advantageous traits. This process continues until the population stagnates to a collection of maximally fit solutions.  In terms of natural selection, the traits of the final population have been selected due to their reproductive success. Note that the fitness of a particular solution is determined entirely by the fitness function under consideration. There can be several viable fitness functions, each potentially resulting in distinct optimal populations.
 
 
 %--------------------------------------%
 \subsection{Genetic Operators}
 %--------------------------------------%
-For reproduction, the principal mechanism is the genetic operator known as crossover. Crossover is the exchange of genetic material between two or more parent solutions to create at least one offspring. The genetic material is exchanged randomly at a single or multiple crossover points giving the offspring different trait combinations. This promotes exploration of the solution space by creating new and diverse candidate solutions. Over many generations, the offspring inherit favourable traits from their parents leading to fitter solutions. Alternatively, mutation is a genetic operator that acts on individual population members by randomly introducing slight genetic modifications. This prevents premature convergence to suboptimal populations that may result from crossover alone. 
+For reproduction, the principal mechanism is the genetic operator known as crossover. Crossover is the exchange of genetic material between two or more parent solutions to create at least one offspring. The genetic material is exchanged randomly at a single or multiple crossover points giving the offspring different trait combinations. This promotes exploration of the solution space by creating new and diverse candidate solutions. Over many generations, the offspring inherit favourable traits from their parents leading to fitter solutions. Mutation is a genetic operator that acts on individual population members by randomly introducing slight genetic modifications. This prevents premature convergence to suboptimal populations that may result from crossover alone. 
 
-The balance between these two operators is crucial for the efficacy of an EA. Natural processes indicate that crossover is to be the principal driving force of the evolutionary process, while mutations are to be applied sparingly. Nonetheless, determining the precise ratio between these operators necessitates parameter tuning to optimize the EA's performance.
+The balance between these two operators is crucial for the efficacy of an EA. Natural processes indicate that crossover is to be the principal driving force of the evolutionary process, while mutations are to be applied sparingly. Nonetheless, determining the precise ratio between these operators necessitates hyperparameter tuning to optimize the EA's performance.
 
 
 
@@ -304,11 +302,11 @@ The balance between these two operators is crucial for the efficacy of an EA. Na
 %----------------------------------------------------------------------------------%
 \subsection{Evolutionary Algorithms For Model-Based Clustering}
 %----------------------------------------------------------------------------------%
-Early applications of EAs for model-based clustering can be found in \citet{martinez2000} and \citet{pernkopf2005}. To address the local max problem associated with the EM algorithm, the original works focused on evolving the parameters of a multivariate Gaussian mixture model. That is, they applied crossover and mutation directly to the parameters in $\bm{\vartheta}$. The fitness of potential solutions was assessed using the minimum description length (MDL). 
+Early applications of EAs for model-based clustering can be found in \citet{martinez2000} and \citet{pernkopf2005}. To address the local maximum problem associated with the EM algorithm, the original works focused on evolving the parameters of a multivariate Gaussian mixture model. That is, they applied crossover and mutation directly to the parameters in $\bm{\vartheta}$. The fitness of potential solutions was assessed using the minimum description length (MDL). 
 
 More recently, \citet{andrews2013} and \citet{mcnicholas2020} introduced a slightly different approach. Instead of evolving the parameter space, they applied crossover and mutation to a population of latent cluster membership matrices $\mathbfcal{Z}_k$. In this case, the fitness function was the observed-log likelihood calculated at the parameter updates. The main advantage of evolving the cluster membership labels instead of the model parameters lies in the size of the respective spaces. The total number of possible classifications of $N$ observations into $G$ groups is finite, in contrast to the infinite parameter space \citep{andrews2013}.
 
-\citet{mcnicholas2020} successfully developed an EA for multivariate Gaussian model-based clustering, using two-point crossover and a greedy mutation function. In this work, we aim to extend this algorithm to the matrix-variate setting, allowing for broader applicability.
+\citet{mcnicholas2020} developed an EA for multivariate Gaussian model-based clustering, using two-point crossover and a greedy mutation function. In this work, we aim to extend this algorithm to the matrix-variate setting, allowing for broader applicability.
 
 
 
@@ -351,7 +349,7 @@ for $g = 1, \dots, G$. Then we calculate the observed log-likelihood at the curr
 %--------------------------------%
 The EA starts by initializing the first generation with a population of $K$ parent solutions, denoted as $\tilde{\bf \mathbfcal{Z}}_1, \dots, \tilde{\bf \mathbfcal{Z}}_K$. In general, the parent solutions are randomly generated matrices representing random hard clusterings of the data. Alternatively, one can provide initial solutions, such as a hardened $k$-means or other handpicked solutions, to inform the evolutionary process.  
 
-Reproduction in the EA involves cloning the parents $J$ times and performing crossover on each clone. The crossover operation randomly swaps two distinct rows of the parent solution to create clones with identical membership labels except for two observations. For example, suppose we randomly select labels $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent in Figure \ref{fig:crossover}. Since the rows are distinct, we swap them to create a clone $\tilde{ \bf \mathbfcal{Z} }_{k_j}$ with the same genetic material except for those two labels.  
+Reproduction in the EA involves cloning the parents $J$ times and performing crossover on each parent and clone. Crossover randomly exchanges two distinct rows between the parent solution and its clone creating an offspring with identical membership labels except for two observations. It's worth noting that this exchange can also be viewed as a single parent operation in which two distinct rows of a single parent are swapped. While this differs from the exploratory aspect of biological crossover, it offers the advantage of monotonically increasing the fitness of the population. To illustrate this operation, suppose we randomly select labels $\tilde{\bf z}_2$ and $\tilde{\bf z}_N$ from the parent in Figure \ref{fig:crossover}. Since the rows are distinct, we swap them to create offspring $\tilde{ \bf \mathbfcal{Z} }_{k_j}$ with the same genetic material except for those two labels.   
 \begin{figure}[H]
 \setstretch{2}
 $$\tilde{\bf {\mathbfcal{Z}}}_{k} = 
@@ -382,7 +380,7 @@ $$\tilde{\bf {\mathbfcal{Z}}}_{k} =
 
 If the labels are identical, we continue randomly selecting rows until two distinct labels are found. After crossover, the population size grows to $K + KJ$, including the original parents and their offspring. The population is then organized into a list of descending fitness, from which we select the top $K$ solutions to become the next generation of parents. This crossover step helps avoid stopping at local maxima of the fitness surface, i.e., the observed log-likelihood. 
 
-Because swapping alone does not guarantee better clustering results, we now introduce a greedy mutation step. For each of the surviving $K$ individuals, we randomly swap distinct elements in a random row until their fitness improves. Suppose we randomly select label $\tilde{\bf z}_2$ from the parent in Figure \ref{fig:mutation}. Continuing, we may randomly select distinct elements $\tilde{z}_{22}, \tilde{z}_{2G} \in \tilde{\bf z}_2$ and swap. 
+Because swapping alone does not guarantee better clustering results, we now introduce a greedy mutation step. For each of the surviving $K$ individuals, we randomly swap the unit-element in a random row until their fitness improves. Suppose label $\tilde{\bf z}_2$ is randomly selected from the parent in Figure \ref{fig:mutation}. Within this row, we may swap the unit-element $\tilde{z}_{2G}=1$ with randomly selected zero-element $\tilde{z}_{22}=0$.
 \vspace{0.5cm}
 \begin{figure}[H]
 \setstretch{2}
@@ -409,11 +407,11 @@ $$\tilde{ {\bf \mathbfcal{Z}} }_{k}  =
 \end{bmatrix}$$
 \vspace{-0.5cm}
 \setstretch{1}
-\caption{Illustration of the mutation operator, swapping distinct elements $\tilde{z}_{22}$ and $\tilde{z}_{2G}$ in a random row of a surviving parent for a slightly modified solution.}
+\caption{Illustration of the mutation operator, swapping unit-element $\tilde{z}_{2G}$ with zero-element $\tilde{z}_{22}$ in a random row of a surviving parent for a slightly modified solution.}
 \label{fig:mutation}
 \end{figure}
 
-If the mutation increases fitness, the swap is kept; otherwise, the swap is reversed. This process continues until either a profitable mutation is found or all rows have been exhausted leaving the parent unchanged. If a generation remains unchanged after applying both crossover and mutation, it is considered a stagnation. After a predetermined number of stagnations, the algorithm terminates, resulting in a population of $K$ fit solution matrices.
+If the mutation increases fitness, the swap remains; otherwise, the swap is reverted. This process continues until either a profitable mutation is found or all rows have been exhausted leaving the parent unchanged. If a generation remains unchanged after applying both crossover and mutation, it is considered a stagnation. After a predetermined number of consecutive stagnations, the algorithm terminates, resulting in a population of $K$ fit solution matrices.
 
 
 
@@ -436,20 +434,20 @@ If the mutation increases fitness, the swap is kept; otherwise, the swap is reve
 
 	\For{$k = 1 \text{ to } K$} \Comment{crossover step}
 		\For{$j = 1 \text{ to } J$}
-		        \State \textbf{Crossover:} randomly swap two distinct labels from parent $\tilde{ {\bf \mathbfcal{Z}}}_{k}$ to get clone $\tilde{{\bf  \mathbfcal{Z}}}_{k_j}$
-       			 \State \textbf{Fitness:} update model parameters and calculate log-likelihood of the clone 
+		        \State \textbf{Crossover:} randomly swap two distinct labels from parent $\tilde{ {\bf \mathbfcal{Z}}}_{k}$ to get offspring $\tilde{ {\bf \mathbfcal{Z}}}_{kj}$
+       			 \State \textbf{Fitness:} update model parameters and calculate log-likelihood of $\tilde{ {\bf \mathbfcal{Z}}}_{kj}$
 		\EndFor
 	\EndFor
 	
-	\State \textbf{Survival:} sort parents and clones by descending fitness and take top $K$ as new parents 
+	\State \textbf{Survival:} sort parents and offspring by descending fitness and take top $K$ as new parents 
 		
 	\For{$k = 1 \text{ to } K$} \Comment{mutation step}
          	\For{$r$ in random permutation of $1$ to $N$} 
-        			\State \textbf{Mutate:} swap two distinct elements in row $r$ 
+        			\State \textbf{Mutate:} randomly swap unit-element with zero-element in row $r$ 
      			\If{fitness increases}
         				\State \textbf{break for}
      			\Else
-     				\State swap back 
+     				\State revert the unit-element and zero-element swap 
    			 \EndIf
         		\EndFor
         \EndFor  
@@ -536,7 +534,7 @@ and the scale parameters are given by
 \end{bmatrix}.
 \end{align*}
 
-The optimal number of components for the EM algorithm was $G=2$ and the optimal EA consisted of $G=2$, $K=1$, and $J=12$. Table \ref{table:sim1} presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results indicate that both the EM and EA exhibited nearly identical performance. While the EA found slightly superior maxima, as evidenced by the average likelihood ratio, the EM achieved slightly better ARI scores. We acknowledge that the EA is generally slower than the EM due to its more computationally intensive nature; however, the runtimes appear comparable in this case since the number of parents is quite low.
+The optimal number of components for the EM algorithm was $G=2$ and the optimal EA consisted of $G=2$, $K=1$, and $J=12$. Table \ref{table:sim1} presents the mean and standard deviation for ARI, runtime, and EA to EM likelihood ratio of the optimal models across the 25 runs. The results indicate that both the EM and EA exhibited nearly identical performance. While the EA found slightly superior maxima, as evidenced by the average likelihood ratio, the EM achieved slightly better ARI scores. We acknowledge that the EA is generally slower than the EM; however, the runtimes appear comparable in this case since the number of parents is quite low.
 
 \begin{table}[!htbp]
   \caption{Mean and standard deviation of ARI, runtime, and likelihood ratio for EA and EM associated with Simulation 1.}
@@ -648,7 +646,7 @@ The following sections detail an investigation of two real-world datasets. First
 %-------------------------------------------%
 \section{Landsat Satellite Dataset}
 %-------------------------------------------%
-This dataset is a collection of digital images captured by the Landsat program, which is a series of Earth-observing satellites managed by NASA and the United States Geological Survey (USGS). The original data was purchased from NASA by the Australian Centre for Remote Sensing and subsequently donated to the UCI machine learning repository in a preprocessed form \citep{landsat}. The preprocessing includes converting the original binary values to ASCII, labelling the data based on site visits, removing data to prevent image reconstruction, and partitioning the data into training and testing sets. 
+This dataset is a collection of digital images captured by the Landsat program, which is a series of Earth-observing satellites managed by NASA and the United States Geological Survey (USGS). The original data was purchased from NASA by the Australian Centre for Remote Sensing and subsequently donated to the UCI machine learning repository in a preprocessed form \citep{landsat}. The preprocessing includes labelling the data based on site visits, removing data to prevent image reconstruction, and partitioning the data into training and testing sets. 
 
 Four digital images of size $3 \times 3$ were taken of the same region in different spectral bands, corresponding to random matrices of size $4\times 9$. Two of the bands were in the visible spectrum, while the other two were in the infrared spectrum. The pixel intensities range from 0 to 255. The researchers identified seven classes of images based on the central pixels which are described in Table \ref{table:classes}. Notably, class 6 was removed by the researchers due to doubts of the validity of the class.
 \setcounter{table}{0}
@@ -673,7 +671,7 @@ Four digital images of size $3 \times 3$ were taken of the same region in differ
 
 Originally, this dataset was used for multivariate clustering by considering only a vector of the 4 central pixels, which is what the labels are based on. However, this approach neglects a significant amount of information along the borders which can be leveraged by matrix-variate distributions. Although we possess more information, the regions along the boundaries between classes are less distinct and pose a greater challenge to separate.
  
-For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of size $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA resulted in $G=4$ components. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. In fact, it is possible that these bordering regions should have been assigned to class 6, which was later removed. The optimal EA also comprised $K=2$ parents and $J=8$ clones. Table \ref{table:landsat_results} showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Additionally, Tables \ref{table:landsat_EA} and \ref{table:landsat_EM} present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. Moreover, an EA to EM likelihood ratio of approximately 1.55 indicates a substantial improvement in likelihood. This increase in EA likelihood translated to a slight increase in ARI over the EM. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
+For our analysis, we focused on the first three classes from the test set: red soil, cotton crop, and grey soil, resulting in a dataset of size $N = 1081$ observations with true proportions approximately $\bm{\pi} = (0.43, 0.21, 0.37)$. Surprisingly, both the EM and EA resulted in $G=4$ components. The presence of this extra class could be attributed to the lack of distinct borders between classes of images, as the images were labeled based on their central pixels. In fact, it is possible that these bordering regions should have been assigned to class 6, which was later removed. The optimal EA also comprised $K=2$ parents and $J=8$ clones. Table \ref{table:landsat_results} showcases the results, including the log-likelihood, ARI, total runtime, and the EA to EM likelihood ratio. Additionally, Tables \ref{table:landsat_EA} and \ref{table:landsat_EM} present the cross-tabulation of the MAP classifications for the EA and EM, respectively. The results demonstrate that, despite an increase of approximately 5 minutes in runtime, the EA discovered a superior maximum. Specifically, we have an EA to EM likelihood ratio of approximately 1.55 which translated to an approximate 0.01 increase in ARI. Notably, both algorithms exhibit a similar clustering pattern in the cross-tabulations.
 
 
 \newpage
@@ -685,8 +683,8 @@ For our analysis, we focused on the first three classes from the test set: red s
   \toprule
     &\textbf{Log-Likelihood}& \textbf{ARI} & \textbf{Runtime (sec)} & \textbf{Likelihood Ratio} \\
   \midrule
-   EA & -108118.26     & 87.8 &  348.48 & \multirow{2}{*}{1.55}\\
-  EM & -108118.7          & 86.9 & 36.89    \\
+   EA & -108118.26     & 0.878 &  348.48 & \multirow{2}{*}{1.55}\\
+  EM & -108118.7          & 0.869 & 36.89    \\
   \bottomrule
   \end{tabularx}
 \end{table}
@@ -744,8 +742,8 @@ Remarkably, both algorithms showed identical clustering results in terms of like
   \toprule
     &\textbf{Log-Likelihood}& \textbf{ARI} & \textbf{Runtime (sec)} & \textbf{Likelihood Ratio} \\
   \midrule
-  EA & -97320.28     & 90.4 &  43.75 & \multirow{2}{*}{1.00}  \\
-  EM & -97320.28    & 90.4 & 2.95  \\
+  EA & -97320.28     & 0.904 &  43.75 & \multirow{2}{*}{1.00}  \\
+  EM & -97320.28    & 0.904 & 2.95  \\
   \bottomrule
   \end{tabularx}
 \end{table}
@@ -810,7 +808,7 @@ Overall, the EA proves to be a competitive alternative for fitting model paramet
 %-------------------------%
 \section{Future Work}
 %-------------------------%
-Future research could focus on improving the EA's runtime performance, either by exploring more optimal implementations of genetic operators, using parallel computing, or by leveraging lower-level languages such as \texttt{C}. Additionally, extending the investigation to non-Gaussian distributions could broaden the applicability of the proposed method. Lastly, exploring new genetic operators or modified versions of crossover and mutation could lead to further enhancements in the EA's performance.
+Future research could focus on improving the EA's runtime performance, either by exploring more optimal implementations of the genetic operators, or by leveraging parallel computing. Additionally, extending the investigation to non-Gaussian distributions could broaden the applicability of the proposed method. Lastly, exploring modified versions of crossover and mutation could lead to further enhancements in the EA's performance.
 
 
 

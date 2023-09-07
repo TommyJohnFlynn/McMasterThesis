@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Illustration of the crossover operator, randomly swapping distinct rows $\tilde {\bf z}_2$ and $\tilde {\bf z}_N$ from the parent solution to create a child with similar genetic material.}}{17}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Illustration of the mutation operator, swapping distinct elements $\tilde {z}_{22}$ and $\tilde {z}_{2G}$ in a random row of a surviving parent for a slightly modified solution.}}{18}{figure.3.2}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Illustration of the mutation operator, swapping unit-element $\tilde {z}_{2G}$ with zero-element $\tilde {z}_{22}$ in a random row of a surviving parent for a slightly modified solution.}}{18}{figure.3.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
